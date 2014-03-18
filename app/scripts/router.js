@@ -1,5 +1,10 @@
 App.Router.map(function () {
   // Add your routes here
+  this.route('login');
+  this.route('profile', {path: '/profile/profile_id'});
+  this.resource('properties', function(){
+    this.route('property', {path: '/property/property_id'})
+  })
 });
 
 App.Router.reopen({
