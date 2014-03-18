@@ -1,5 +1,6 @@
 App.Router.map(function () {
   // Add your routes here
+  this.resource('style-guide')
 });
 
 App.Router.reopen({
