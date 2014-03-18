@@ -5,5 +5,127 @@ $icon-font-path: "../styles/fonts/"; // Change the path to the fonts
 /* Put your CSS here */
 nav {
   padding: 5px 5px;
+  background-color: rgb(242, 51, 22);
+  color: white;
+}
+
+body {
+    padding-top: 0px;
+    padding-bottom: 20px;
+    background: #FCF5F4;
+    font-family: 'Muli', sans-serif;
+    color: #423737;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Muli', sans-serif;
+    color: #725C5C;
+}
+
+h1 {
+    font-family: 'Cantata One', serif;
+}
+
+h3,h4,h5,h6 {
+	color: #776A6A;
+}
+
+p {
+    font-size: 1.5em;    
+}
+
+.header {
+    border-bottom: 1px solid #e5e5e5;
+    background-color: rgb(242, 51, 22);
+    color: white;
+
+    span {
+        color: #FCF5F4;
+        font-size: 24px;
+    }
+
+    h2 {
+    	color: white;
+    }
+
+    /* Make the masthead heading the same height as the navigation */
+}
+
+span.logo-style {
+    font-family: 'Cantata One', serif;
+    font-size: 40px;
+}
+
+.logo-styles {
+    font-size: 30px;
+}
+span.font2 {
+    font-family: 'Sansita One', cursive;
+}
+span.font4 {
+    font-family: 'Cantata One', serif;
+    letter-spacing: 1px;
+}
+
+// Elements specific to Styleguide structure
+.style-element {
+	padding: 5px;
+	margin: 5px;
+	text-align: center;
+		img {
+		width: 100px;
+	}
+
+}
+
+.color-element {
+	border: 1px solid #776A6A;
+	padding: 5px;
+	margin: auto;
+	text-align: center;
+	font-size: 20px;
+	border-radius: 50%;
+	height: 60px;
+	width: 60px;
+	background-color: black;
+
+		&.primary-color{
+			background-color: #FCF5F4;
+		}
+
+		&.secondary-color {
+			background-color: rgb(184, 174, 174);
+		}
+
+		&.tertiary-color {
+			background-color: #776A6A;
+		}
+
+		&.sig-color {
+			background-color: rgb(242, 51, 22);
+		}
+
+		&.accent-color {
+			background-color: #E48070;
+		}
+
+		&.cta-color {
+			background-color: #16F2F2;
+		}
+
+		&.cta2-color {
+			background-color: #46BDBD;
+		}
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 960px;
+    }
+
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
 }
 
