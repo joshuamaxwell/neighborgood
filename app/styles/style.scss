@@ -1,8 +1,9 @@
 $icon-font-path: "../styles/fonts/"; // Change the path to the fonts
+@import "compass/reset";
 @import "bootstrap-sass/lib/bootstrap";
 
 /* Put your CSS here */
-html, body {
-    margin: 30px 0;
+nav {
+  padding: 5px 5px;
 }
 
