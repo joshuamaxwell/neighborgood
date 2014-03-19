@@ -75,10 +75,6 @@ h3,h4,h5,h6 {
 	color: #776A6A;
 }
 
-p {
-    font-size: 1.5em;    
-}
-
 a {
 	color: $cta2-color;
 	text-decoration: none;
@@ -124,6 +120,10 @@ input	{
 
     @media only screen and (max-width: 500px) {
     	padding-top: 45px;
+    }
+
+    p {
+    	font-size: 1.5em;
     }
 
 
@@ -207,34 +207,91 @@ span.font4 {
 	width: 60px;
 	background-color: black;
 
-		&.primary-color{
-			background-color: $primary-color;
-		}
-
-		&.secondary-color {
-			background-color: $secondary-color;
-		}
-
-		&.tertiary-color {
-			background-color: $tertiary-color;
-		}
-
-		&.sig-color {
-			background-color: $sig-color;
-		}
-
-		&.accent-color {
-			background-color: $accent-color;
-		}
-
-		&.cta-color {
-			background-color: $cta-color;
-		}
-
-		&.cta2-color {
-			background-color: $cta2-color;
+		&.link-element {
+			height: 100px;
+			width: 100px;
+			line-height: 40px;
+			font-size: 20px;
 		}
 }
+
+.primary-color{
+			background-color: $primary-color;
+			color: $tertiary-color;
+			a {
+				color: $cta2-color;
+				&:hover {
+					color: $sig-color;
+				}
+			}
+		}
+
+.secondary-color {
+			background-color: $secondary-color;
+			color: $tertiary-color;
+			a {
+				color: white;
+				&:hover {
+					color: $sig-color;
+				}
+			}
+		}
+
+.tertiary-color {
+			background-color: $tertiary-color;
+			color: white;
+			a {
+				color: $cta-color;
+				&:hover {
+					color: white;
+				}
+			}
+		}
+
+.sig-color {
+			background-color: $sig-color;
+			color: white;
+			a {
+				color: white;
+				text-decoration: underline;
+				&:hover {
+					color: $tertiary-color;
+				}
+			}
+		}
+
+.accent-color {
+			background-color: $accent-color;
+			color: $tertiary-color;
+			a {
+				color: $sig-color;
+				&:hover {
+					color: white;
+				}
+			}
+		}
+
+.cta-color {
+			background-color: $cta-color;
+			color: $tertiary-color;
+			a {
+				color: white;
+				&:hover {
+					color: $tertiary-color;
+				}
+			}
+		}
+
+.cta2-color {
+			background-color: $cta2-color;
+			color: white;
+			a {
+				color: $sig-color;
+				&:hover {
+					color: white;
+				}
+			}
+		}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
