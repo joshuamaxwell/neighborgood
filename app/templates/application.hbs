@@ -1,4 +1,5 @@
 <div class="app">
+    {{!-- this div.app is the component that will always be present so it includes the top nav bar --}}
     <nav>
        <a class="open-menu" href="#drawer">hamburger</a>
        <span>searchbox here   (X)</span>
@@ -6,6 +7,8 @@
     </nav>
    {{outlet}}
 </div>
+
+{{!-- the navigation drawer is below --}}
 <nav id="drawer">
    <ul class="list">
       <li><a href="/">Home</a></li>

@@ -6,16 +6,22 @@
 
         <!-- build:css styles/main.css -->
         <link rel="stylesheet" href="styles/style.css">
+        <!-- adding the styling for jquery.mmenu.css -->
         <link rel="stylesheet" href="bower_components/mmenu/src/css/jquery.mmenu.css">
         <!-- endbuild -->
 </head>
     <body>
         <!-- build:js(app) scripts/components.js -->
         <script src="bower_components/jquery/jquery.js"></script>
+        <!-- adding the jquery.mmenu.js plugin -->
         <script src="bower_components/mmenu/src/js/jquery.mmenu.js"></script>
         <script src="bower_components/handlebars/handlebars.runtime.js"></script>
         <script src="@@ember"></script>
         <script src="@@ember_data"></script>
+        <!-- adding the following lines to use Firebase -->
+        <script src="bower_components/firebase/firebase.js"></script>
+        <script src='https://cdn.firebase.com/v0/firebase-simple-login.js'></script>
+        <script src="http://firebase.github.io/emberFire/emberfire-latest.js"></script>
         <!-- endbuild -->
 
         <!-- build:js(.tmp) scripts/templates.js -->
