@@ -57,9 +57,9 @@ nav {
 
 body {
     padding-bottom: 20px;
-    background: #F7F7F7;
+    background: $primary-color;
     font-family: 'Muli', sans-serif;
-    color: #423737;
+    color: $tertiary-color;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -180,6 +180,14 @@ span.font4 {
 	padding: 5px;
 	margin: 5px;
 	text-align: center;
+
+	.description {
+		border-radius: 6px;
+		background-color: white;
+		padding: 5px;
+		width: 80%;
+		margin: auto;
+	}
 }
 
 .photo-wrapper {
@@ -199,6 +207,7 @@ span.font4 {
 	border: 1px solid #AEB2B8;
 	padding: 5px;
 	margin: auto;
+	margin-bottom: 10px;
 	text-align: center;
 	vertical-align: center;
 	font-size: 12px;
@@ -210,8 +219,9 @@ span.font4 {
 		&.link-element {
 			height: 100px;
 			width: 100px;
-			line-height: 40px;
+			line-height: 20px;
 			font-size: 20px;
+			padding-top: 25px;
 		}
 }
 
@@ -276,8 +286,10 @@ span.font4 {
 			color: $tertiary-color;
 			a {
 				color: white;
+				text-shadow: 1px 1px 1px gray;
 				&:hover {
 					color: $tertiary-color;
+					text-shadow: none;
 				}
 			}
 		}
