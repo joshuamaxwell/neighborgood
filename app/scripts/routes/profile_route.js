@@ -1,6 +1,6 @@
 App.ProfileRoute = Ember.Route.extend({
   model: function() {
-    return App.user
+    return App.userProfile.get('user')
   },
 
   //after we get(or don't get) the model from the router, if it's undefined
