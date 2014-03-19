@@ -1,7 +1,9 @@
 //this code originally copy pasted from 
 //http://blog.sensible.io/2013/05/23/how-to-write-a-login-form.html
 
-App.LoginController = Ember.Controller.extend({
+// I was extending Ember.Controller, but THE WHOLE TIME
+// I should have been extending Ember.ObjectController
+App.LoginController = Ember.ObjectController.extend({
   controllerProperty: 'this is directly from the controller',
 
   actions: { 
