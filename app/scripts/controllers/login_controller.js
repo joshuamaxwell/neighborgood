@@ -2,47 +2,32 @@
 //http://blog.sensible.io/2013/05/23/how-to-write-a-login-form.html
 
 App.LoginController = Ember.Controller.extend({
-  loginFailed: false,
-  isProcessing: false,
-  isSlowConnection: false,
-  timeout: null,
+  controllerProperty: 'this is directly from the controller',
 
-  login: function() {
-    this.setProperties({
-      loginFailed: false,
-      isProcessing: true
-    });
+  actions: { 
+    login: function() {
+      //I am expecting for the next three lines of code to modify the model
+      //that is sent to this controller from loginRoute and for those manipulations
+      //to be instantly shown in the login template
+      console.log('login clicked. model in LoginController before manipulation is: ', this.get('model'));
+      this.set('controllerProperty', 'I changed the controller\'s property upon click');
+      this.set("model.isProcessing", true);
+      this.set("model.loginFailed", false);
+      this.set("model.timeout", setTimeout(this.slowConnection.bind(this.get('model')), 5000));
 
-    this.set("timeout", setTimeout(this.slowConnection.bind(this), 5000));
-    
-    var request = this.login('password', {
-                          email: this.get('username'),
-                          password: this.get('password')
-                        }//the callback (upon error or success) is handled in app.js from FirebaseSimpleLogin() App.auth() callback
-                        );
-    // var request = $.post("/login", this.getProperties("username", "password"));
-    // request.then(this.success.bind(this), this.failure.bind(this));
-  },
+      console.log('model in LoginController after manipulation is: ', this.get('model'));
 
-  success: function() {
-    this.reset();
-    document.location = "/welcome";
-  },
-
-  failure: function() {
-    this.reset();
-    this.set("loginFailed", true);
+      //use the auth object's login() method to log the user in
+      App.auth.login('password', 
+        {
+          email: this.get('username'),
+          password: this.get('password')
+        }
+      );
+    }
   },
 
   slowConnection: function() {
-    this.set("isSlowConnection", true);
+    this.set("model.isSlowConnection", true);
   },
-
-  reset: function() {
-    clearTimeout(this.get("timeout"));
-    this.setProperties({
-      isProcessing: false,
-      isSlowConnection: false
-    });
-  }
 });

@@ -1,29 +1,45 @@
 {{!-- //this code originally copy pasted from http://blog.sensible.io/2013/05/23/how-to-write-a-login-form.html --}}
 
+
+{{!-- this is where the problems are --}}
+{{!-- none of the model's properties seem to be binding in this template --}}
 <form class="form-horizontal" {{action "login" on="submit"}}>
   {{#if loginFailed}}
     <div class="alert">Invalid username or password.</div>
   {{/if}}
+  
+  {{#if isSlowConnection}}
+    <div class="alert alert-info">The request seems to be taking more time than usual, please wait.</div>
+  {{/if}}
+
+{{!-- I would expect this div.debugging to dynamically update when the App.userProfile model changes since that is the model that my route passes to this template's controller --}}
+  <div class="debugging">
+    loginFailed: {{loginFailed}} <br>
+    isProcessing: {{isProcessing}} <br>
+    isSlowConnection: {{isSlowConnection}} <br>
+    timeout: {{timeout}} <br>
+    controllerProperty: {{controllerProperty}}<br>
+  </div>
 
   <div class="control-group">
-    <div class="control-label">
+    <span class="control-label">
       <label>Username</label>
-    </div>
+    </span>
 
-    <div class="controls">
+    <span class="controls">
       {{input value=username type="text"}}
-    </div>
-  </div>
+    </span>
+  </div> {{!-- end control-group --}}
 
   <div class="control-group">
-    <div class="control-label">
+    <span class="control-label">
       <label>Password</label>
-    </div>
+    </span>
 
-    <div class="controls">
+    <span class="controls">
       {{input value=password type="password"}}
-    </div>
-  </div>
+    </span>
+  </div> {{!-- end control-group --}}
 
   <button type="submit" class="btn" {{bind-attr disabled="isProcessing"}}>Log in!</button>
 </form>

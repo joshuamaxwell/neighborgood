@@ -1,10 +1,6 @@
-var dbRoot = "https://glaring-fire-2767.firebaseIO.com";
-var profilePath = dbRoot + "/profile";
 App.ProfileRoute = Ember.Route.extend({
   model: function() {
-    return EmberFire.Array.create({
-      ref: new Firebase(profilePath)
-    });
+    return App.user
   },
 
   //after we get(or don't get) the model from the router, if it's undefined
