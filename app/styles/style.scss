@@ -3,22 +3,68 @@ $icon-font-path: "../styles/fonts/"; // Change the path to the fonts
 @import "bootstrap-sass/lib/bootstrap";
 
 /* Put your CSS here */
+// Variables
+$primary-color: #F7F7F7;
+$secondary-color: #AEB2B8;
+$tertiary-color: #6A6C77;
+$sig-color: rgb(242, 51, 22);
+$accent-color: #F5A9A9;
+$cta-color: #16F2F2;
+$cta2-color: #46BDBD;
+$sig-color-link: white;
+$sig-color-linkhover: $secondary-color;
+$sig-color-opaque: rgba(242, 51, 22, 0.70);
+
+
 nav {
   padding: 5px 5px;
-  background-color: rgb(242, 51, 22);
+  background-color: $sig-color-opaque;
   color: white;
+  border-bottom: 1px solid #E48070;
+  height: 60px;
+  vertical-align: center;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+
+  .glyphicon {
+  	font-size: 25px;
+  }
+
+  .nav-icon {
+  	margin-top: 5px;
+  	margin-left: 5px;
+  }
+
+  a {
+  	color: $sig-color-link;
+
+  	&:hover {
+  		color: $sig-color-linkhover;
+  	}
+  }
+
+  .open-menu {
+  	float: left;
+  	margin-left: 10px;
+  }
+
+  @media only screen and (max-width: 500px) {
+  	height: 45px;
+  	line-height: 30px;
+  }
 }
 
 body {
-    padding-top: 0px;
     padding-bottom: 20px;
-    background: #FCF5F4;
+    background: #F7F7F7;
     font-family: 'Muli', sans-serif;
     color: #423737;
 }
+
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Muli', sans-serif;
-    color: #725C5C;
+    color: $tertiary-color;
 }
 
 h1 {
@@ -33,10 +79,53 @@ p {
     font-size: 1.5em;    
 }
 
+a {
+	color: $cta2-color;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: none;
+		color: $sig-color;
+	}
+}
+
+input	{
+	border: 1px solid $primary-color;
+	color: $tertiary-color; 
+    // -webkit-box-shadow: 
+    //   inset 0 0 8px  rgba(0,0,0,0.1),
+    //         0 0 16px rgba(0,0,0,0.1); 
+    // -moz-box-shadow: 
+    //   inset 0 0 8px  rgba(0,0,0,0.1),
+    //         0 0 16px rgba(0,0,0,0.1); 
+    // box-shadow: 
+    //   inset 0 0 8px  rgba(0,0,0,0.1),
+    //         0 0 16px rgba(0,0,0,0.1); 
+    padding: 10px;
+    background: $accent-color;
+    border-radius: 20px;
+    opacity: .75;
+    &:focus {
+    	background: white;
+    	outline: none;
+    	opacity: 1;
+    }
+
+    @media only screen and (max-width: 500px) {
+    	padding: 0px;
+    }
+}
+
 .header {
     border-bottom: 1px solid #e5e5e5;
-    background-color: rgb(242, 51, 22);
+    background-color: $sig-color;
     color: white;
+    padding-top: 60px;
+
+    @media only screen and (max-width: 500px) {
+    	padding-top: 45px;
+    }
+
 
     span {
         color: #FCF5F4;
@@ -48,6 +137,10 @@ p {
     }
 
     /* Make the masthead heading the same height as the navigation */
+}
+
+.container {
+	position: relative;
 }
 
 span.logo-style {
@@ -67,53 +160,79 @@ span.font4 {
 }
 
 // Elements specific to Styleguide structure
+.nav-style-guide {
+	margin-top: 20px;
+	
+	ul {
+		border-top: 1px solid #E0E3E7;
+	}
+
+	li {
+		border-bottom: 1px solid #E0E3E7;
+		line-height: 30px;
+		font-size: 16px;
+	}
+
+
+}
+
 .style-element {
 	padding: 5px;
 	margin: 5px;
 	text-align: center;
-		img {
-		width: 100px;
-	}
+}
 
+.photo-wrapper {
+	padding: 5px;
+	border-radius: 6px;
+	background-color: #fff;
+	border: 1px solid #AEB2B8;
+	box-shadow: 0px 2px 0px #6A6C77;
+
+		img {
+			width: 100%;
+			border-radius: 2px;
+		}
 }
 
 .color-element {
-	border: 1px solid #776A6A;
+	border: 1px solid #AEB2B8;
 	padding: 5px;
 	margin: auto;
 	text-align: center;
-	font-size: 20px;
+	vertical-align: center;
+	font-size: 12px;
 	border-radius: 50%;
 	height: 60px;
 	width: 60px;
 	background-color: black;
 
 		&.primary-color{
-			background-color: #FCF5F4;
+			background-color: $primary-color;
 		}
 
 		&.secondary-color {
-			background-color: rgb(184, 174, 174);
+			background-color: $secondary-color;
 		}
 
 		&.tertiary-color {
-			background-color: #776A6A;
+			background-color: $tertiary-color;
 		}
 
 		&.sig-color {
-			background-color: rgb(242, 51, 22);
+			background-color: $sig-color;
 		}
 
 		&.accent-color {
-			background-color: #E48070;
+			background-color: $accent-color;
 		}
 
 		&.cta-color {
-			background-color: #16F2F2;
+			background-color: $cta-color;
 		}
 
 		&.cta2-color {
-			background-color: #46BDBD;
+			background-color: $cta2-color;
 		}
 }
 
