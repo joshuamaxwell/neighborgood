@@ -1,4 +1,5 @@
 <div class="app">
+    {{!-- this div.app is the component that will always be present so it includes the top nav bar --}}
     <nav>
         <div class="text-center">
            <a class="open-menu nav-icon" href="#drawer"><span class="glyphicon glyphicon-th-list"></span></a>
@@ -8,6 +9,8 @@
     </nav>
    {{outlet}}
 </div>
+
+{{!-- the navigation drawer is below --}}
 <nav id="drawer">
    <ul class="list">
       <li><a href="/">Home</a></li>
