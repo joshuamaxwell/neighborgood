@@ -55,6 +55,12 @@ nav {
   }
 }
 
+.spacer {
+	height: 60px; 
+	@media only screen and (max-width: 500px) {
+		height: 45px;
+	}
+}
 body {
     padding-bottom: 20px;
     background: $primary-color;
@@ -68,7 +74,8 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h1 {
-    font-family: 'Cantata One', serif;
+    font-family: 'Kreon', serif;
+    font-weight: bold;
 }
 
 h3,h4,h5,h6 {
@@ -116,11 +123,6 @@ input	{
     border-bottom: 1px solid #e5e5e5;
     background-color: $sig-color;
     color: white;
-    padding-top: 60px;
-
-    @media only screen and (max-width: 500px) {
-    	padding-top: 45px;
-    }
 
     p {
     	font-size: 1.5em;
@@ -144,15 +146,16 @@ input	{
 }
 
 span.logo-style {
-    font-family: 'Cantata One', serif;
+    font-family: 'Kreon', serif;
     font-size: 40px;
+    font-weight: bold;
 }
 
 .logo-styles {
     font-size: 30px;
 }
 span.font2 {
-    font-family: 'Sansita One', cursive;
+    font-family: 'Kreon', serif;
 }
 span.font4 {
     font-family: 'Cantata One', serif;
@@ -263,7 +266,7 @@ span.font4 {
 			color: white;
 			a {
 				color: white;
-				text-decoration: underline;
+				border-bottom:  1px dashed $cta-color;
 				&:hover {
 					color: $tertiary-color;
 				}
