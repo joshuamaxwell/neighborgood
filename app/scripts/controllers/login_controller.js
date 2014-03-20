@@ -54,8 +54,20 @@ App.LoginController = Ember.ObjectController.extend({
           password: this.get('password')
         }
       );
+    },
+
+    loginFacebook: function(){
+      App.auth.login('facebook',{
+        scope: 'email'
+      });
+    },
+  
+    loginTwitter: function(){
+      App.auth.login('twitter');
     }
+    
   },
+
 
   slowConnection: function() {
     this.set("model.isSlowConnection", true);

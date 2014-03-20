@@ -3,7 +3,7 @@
 
 {{!-- this is where the problems are --}}
 {{!-- none of the model's properties seem to be binding in this template --}}
-<form class="form-horizontal" {{action "login" on="submit"}}>
+<form class="form-horizontal">
   {{#if loginFailed}}
     <div class="alert">Invalid email or password.</div>
   {{/if}}
@@ -40,6 +40,8 @@
     </span>
   </div> {{!-- end control-group --}}
 
-  <button type="submit" class="btn" {{bind-attr disabled="isProcessing"}}>Log in</button>
+  <button {{action 'login'}} class="btn" {{bind-attr disabled="isProcessing"}}>Log in</button>
   <button {{action 'register'}} class="btn" {{bind-attr disabled="isProcessing"}}>Sign up</button>
+  <button {{action 'loginFacebook'}} class="btn" {{bind-attr disabled="isProcessing"}}>Log in with Facebook</button>
+  <button {{action 'loginTwitter'}} class="btn" {{bind-attr disabled="isProcessing"}}>Log in with Twitter</button>
 </form>
