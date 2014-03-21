@@ -4,10 +4,47 @@ $icon-font-path: "../styles/fonts/"; // Change the path to the fonts
 
 /* Put your CSS here */
 // Variables
-$primary-color: #F7F7F7;
-$secondary-color: #AEB2B8;
+// Pop of Red theme>>>>>
+// $primary-color: #F7F7F7;
+// $secondary-color: #AEB2B8;
+// $tertiary-color: #6A6C77;
+// $sig-color: rgb(242, 51, 22);
+// $accent-color: #F5A9A9;
+// $cta-color: #16F2F2;
+// $cta2-color: #46BDBD;
+// $sig-color-link: white;
+// $sig-color-linkhover: $secondary-color;
+// $sig-color-opaque: rgba(242, 51, 22, 0.70);
+
+// Earth & Nature >>>>
+// $primary-color: #F7F7F7;
+// $secondary-color: #007171;
+// $tertiary-color: #003842;
+// $sig-color: #477503;
+// $accent-color: lighten($sig-color, 30%);
+// $cta-color: #00A194;
+// $cta2-color: #46BDBD;
+// $sig-color-link: white;
+// $sig-color-linkhover: $secondary-color;
+// $sig-color-opaque: rgba(242, 51, 22, 0.70);
+
+// Hipster >>>>
+// $primary-color: #F7F7F7;
+// $secondary-color: #878A8A;
+// $tertiary-color: #003842;
+// $sig-color: #007171;
+// $accent-color: lighten($sig-color, 30%);
+// $cta-color: #E64A23;
+// $cta2-color: #F72816;
+// $sig-color-link: white;
+// $sig-color-linkhover: $secondary-color;
+// $sig-color-opaque: rgba(242, 51, 22, 0.70);
+
+// Pop of Red theme>>>>>
+$primary-color: #E5E3D3;
+$secondary-color: #B8B6B1;
 $tertiary-color: #6A6C77;
-$sig-color: rgb(242, 51, 22);
+$sig-color: #F0422A;
 $accent-color: #F5A9A9;
 $cta-color: #16F2F2;
 $cta2-color: #46BDBD;
@@ -15,12 +52,12 @@ $sig-color-link: white;
 $sig-color-linkhover: $secondary-color;
 $sig-color-opaque: rgba(242, 51, 22, 0.70);
 
-
+// Nav Styling
 nav {
   padding: 5px 5px;
-  background-color: $sig-color-opaque;
+  background-color: $sig-color;
   color: white;
-  border-bottom: 1px solid #E48070;
+  border-bottom: 1px solid $accent-color;
   height: 60px;
   vertical-align: center;
   width: 100%;
@@ -29,10 +66,10 @@ nav {
 
   .glyphicon {
   	font-size: 25px;
+  	top: 5px;
   }
 
   .nav-icon {
-  	margin-top: 5px;
   	margin-left: 5px;
   }
 
@@ -61,11 +98,14 @@ nav {
 		height: 45px;
 	}
 }
+
+// Body and tag styling
 body {
     padding-bottom: 20px;
     background: $primary-color;
     font-family: 'Muli', sans-serif;
     color: $tertiary-color;
+    font-size: 16px;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -78,8 +118,8 @@ h1 {
     font-weight: bold;
 }
 
-h3,h4,h5,h6 {
-	color: #776A6A;
+h2 {
+	color: $cta2-color;
 }
 
 a {
@@ -93,7 +133,7 @@ a {
 }
 
 input	{
-	border: 1px solid $primary-color;
+	border: 1px solid $secondary-color;
 	color: $tertiary-color; 
     // -webkit-box-shadow: 
     //   inset 0 0 8px  rgba(0,0,0,0.1),
@@ -105,8 +145,9 @@ input	{
     //   inset 0 0 8px  rgba(0,0,0,0.1),
     //         0 0 16px rgba(0,0,0,0.1); 
     padding: 10px;
-    background: $accent-color;
-    border-radius: 20px;
+    background: lighten($secondary-color, 65%);
+    // background: lighten($accent-color, 15%);
+    border-radius: 6px;
     opacity: .75;
     &:focus {
     	background: white;
@@ -154,9 +195,12 @@ span.logo-style {
 .logo-styles {
     font-size: 30px;
 }
+
 span.font2 {
     font-family: 'Kreon', serif;
+    font-weight: bold;
 }
+
 span.font4 {
     font-family: 'Cantata One', serif;
     letter-spacing: 1px;
@@ -167,11 +211,11 @@ span.font4 {
 	margin-top: 20px;
 	
 	ul {
-		border-top: 1px solid #E0E3E7;
+		border-top: 1px solid $secondary-color;
 	}
 
 	li {
-		border-bottom: 1px solid #E0E3E7;
+		border-bottom: 1px solid $secondary-color;
 		line-height: 30px;
 		font-size: 16px;
 	}
@@ -222,9 +266,9 @@ span.font4 {
 		&.link-element {
 			height: 100px;
 			width: 100px;
-			line-height: 20px;
+			line-height: 25px;
 			font-size: 20px;
-			padding-top: 25px;
+			padding-top: 20px;
 		}
 }
 
@@ -266,9 +310,10 @@ span.font4 {
 			color: white;
 			a {
 				color: white;
-				border-bottom:  1px dashed $cta-color;
+				border-bottom:  1px dotted $cta-color;
 				&:hover {
-					color: $tertiary-color;
+					color: $secondary-color;
+					border-bottom:  1px solid $cta-color;
 				}
 			}
 		}
