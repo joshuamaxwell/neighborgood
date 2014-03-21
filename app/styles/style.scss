@@ -3,11 +3,439 @@ $icon-font-path: "../styles/fonts/"; // Change the path to the fonts
 @import "bootstrap-sass/lib/bootstrap";
 
 /* Put your CSS here */
+// Variables
+// Pop of Red theme>>>>>
+// $primary-color: #F7F7F7;
+// $secondary-color: #AEB2B8;
+// $tertiary-color: #6A6C77;
+// $sig-color: rgb(242, 51, 22);
+// $accent-color: #F5A9A9;
+// $cta-color: #16F2F2;
+// $cta2-color: #46BDBD;
+// $sig-color-link: white;
+// $sig-color-linkhover: $secondary-color;
+// $sig-color-opaque: rgba(242, 51, 22, 0.70);
+
+// Earth & Nature >>>>
+// $primary-color: #F7F7F7;
+// $secondary-color: #007171;
+// $tertiary-color: #003842;
+// $sig-color: #477503;
+// $accent-color: lighten($sig-color, 30%);
+// $cta-color: #00A194;
+// $cta2-color: #46BDBD;
+// $sig-color-link: white;
+// $sig-color-linkhover: $secondary-color;
+// $sig-color-opaque: rgba(242, 51, 22, 0.70);
+
+// Hipster >>>>
+// $primary-color: #F7F7F7;
+// $secondary-color: #878A8A;
+// $tertiary-color: #003842;
+// $sig-color: #007171;
+// $accent-color: lighten($sig-color, 30%);
+// $cta-color: #E64A23;
+// $cta2-color: #F72816;
+// $sig-color-link: white;
+// $sig-color-linkhover: $secondary-color;
+// $sig-color-opaque: rgba(242, 51, 22, 0.70);
+
+// Pop of Red theme>>>>>
+$primary-color: #E5E3D3;
+$secondary-color: #B8B6B1;
+$tertiary-color: #6A6C77;
+$sig-color: #F0422A;
+$accent-color: #F5A9A9;
+$cta-color: #16F2F2;
+$cta2-color: #46BDBD;
+$sig-color-link: white;
+$sig-color-linkhover: $secondary-color;
+$sig-color-opaque: rgba(242, 51, 22, 0.70);
+
+// Nav Styling
 nav {
   padding: 5px 5px;
+  background-color: $sig-color;
+  color: white;
+  border-bottom: 1px solid $accent-color;
+  height: 60px;
+  vertical-align: center;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+
+  .glyphicon {
+  	font-size: 25px;
+  	top: 5px;
+  }
+
+  .nav-icon {
+  	margin-left: 5px;
+  }
+
+  a {
+  	color: $sig-color-link;
+
+  	&:hover {
+  		color: $sig-color-linkhover;
+  	}
+  }
+
+  .open-menu {
+  	float: left;
+  	margin-left: 10px;
+  }
+
+  @media only screen and (max-width: 500px) {
+  	height: 45px;
+  	line-height: 30px;
+  }
 }
 
-.app {
-  padding: 5px;
+.spacer {
+	height: 60px; 
+	@media only screen and (max-width: 500px) {
+		height: 45px;
+	}
+}
+
+// Body and tag styling
+body {
+    padding-bottom: 20px;
+    background: $primary-color;
+    font-family: 'Muli', sans-serif;
+    color: $tertiary-color;
+    font-size: 16px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Muli', sans-serif;
+    color: $tertiary-color;
+}
+
+h1 {
+    font-family: 'Kreon', serif;
+    font-weight: bold;
+}
+
+h2 {
+	color: $cta2-color;
+}
+
+a {
+	color: $cta2-color;
+	text-decoration: none;
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		text-decoration: none;
+		color: $sig-color;
+	}
+}
+
+ul {
+	list-style: circle;
+}
+
+ol {
+	list-style: decimal;
+}
+
+input	{
+	border: 1px solid $secondary-color;
+	color: $tertiary-color; 
+    // -webkit-box-shadow: 
+    //   inset 0 0 8px  rgba(0,0,0,0.1),
+    //         0 0 16px rgba(0,0,0,0.1); 
+    // -moz-box-shadow: 
+    //   inset 0 0 8px  rgba(0,0,0,0.1),
+    //         0 0 16px rgba(0,0,0,0.1); 
+    // box-shadow: 
+    //   inset 0 0 8px  rgba(0,0,0,0.1),
+    //         0 0 16px rgba(0,0,0,0.1); 
+    padding: 10px;
+    background: lighten($secondary-color, 65%);
+    // background: lighten($accent-color, 15%);
+    border-radius: 6px;
+    opacity: .75;
+    margin-bottom: 5px;
+    &:focus {
+    	background: white;
+    	outline: none;
+    	opacity: 1;
+    }
+
+    @media only screen and (max-width: 500px) {
+    	padding: 0px;
+    }
+
+    &.input-error {
+    	background: $accent-color;
+    	border: 1px solid $sig-color;
+    	opacity: 1;
+    	color: $sig-color;
+
+    	&:focus {
+    		background: $accent-color;
+    	}
+    }
+}
+
+.header {
+    border-bottom: 1px solid #e5e5e5;
+    background-color: $sig-color;
+    color: white;
+
+    p {
+    	font-size: 1.5em;
+    }
+
+
+    span {
+        color: #FCF5F4;
+        font-size: 24px;
+        &.glyphicon-home {
+        	color: $primary-color;
+        }
+    }
+
+    h2 {
+    	color: white;
+    }
+
+    /* Make the masthead heading the same height as the navigation */
+}
+
+.container {
+	position: relative;
+}
+
+span.logo-style {
+    font-family: 'Kreon', serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.logo-styles {
+    font-size: 30px;
+}
+
+span.font2 {
+    font-family: 'Kreon', serif;
+    font-weight: bold;
+}
+
+span.font4 {
+    font-family: 'Cantata One', serif;
+    letter-spacing: 1px;
+}
+
+// Elements specific to Styleguide structure
+.nav-style-guide {
+	margin-top: 20px;
+	
+	ul {
+		border-top: 1px solid $secondary-color;
+		list-style: none;
+	}
+
+	li {
+		border-bottom: 1px solid $secondary-color;
+		line-height: 30px;
+		font-size: 16px;
+	}
+}
+
+.divider {
+	background-color: $secondary-color;
+	width: 100%;
+	min-height: 5px;
+	margin-bottom: 10px;
+}
+
+.style-element {
+	padding: 5px;
+	text-align: center;
+
+	.description {
+		border-radius: 6px;
+		background-color: white;
+		padding: 5px;
+		width: 80%;
+		margin: auto;
+
+		@media only screen and (max-width: 991px) {
+			height: 80px;
+		}
+	}
+}
+
+.photo-wrapper {
+	padding: 5px;
+	border-radius: 6px;
+	background-color: #fff;
+	border: 1px solid #AEB2B8;
+	box-shadow: 0px 1px 0px #6A6C77;
+
+		img {
+			width: 100%;
+			border-radius: 2px;
+		}
+}
+
+.color-element {
+	border: 1px solid #AEB2B8;
+	padding: 5px;
+	margin: auto;
+	margin-bottom: 10px;
+	text-align: center;
+	vertical-align: center;
+	font-size: 12px;
+	border-radius: 50%;
+	height: 60px;
+	width: 60px;
+	background-color: black;
+
+		&.link-element {
+			height: 100px;
+			width: 100px;
+			line-height: 25px;
+			font-size: 20px;
+			padding-top: 20px;
+		}
+}
+
+.primary-color{
+			background-color: $primary-color;
+			color: $tertiary-color;
+			a {
+				color: $cta2-color;
+				&:hover {
+					color: $sig-color;
+				}
+			}
+		}
+
+.secondary-color {
+			background-color: $secondary-color;
+			color: $tertiary-color;
+			a {
+				color: white;
+				&:hover {
+					color: $sig-color;
+				}
+			}
+		}
+
+.tertiary-color {
+			background-color: $tertiary-color;
+			color: white;
+			a {
+				color: $cta-color;
+				&:hover {
+					color: white;
+				}
+			}
+		}
+
+.sig-color {
+			background-color: $sig-color;
+			color: white;
+			a {
+				color: white;
+				border-bottom:  1px dotted $cta-color;
+				&:hover {
+					color: $secondary-color;
+					border-bottom:  1px solid $cta-color;
+				}
+			}
+		}
+
+.accent-color {
+			background-color: $accent-color;
+			color: $tertiary-color;
+			a {
+				color: $sig-color;
+				&:hover {
+					color: white;
+				}
+			}
+		}
+
+.cta-color {
+			background-color: $cta-color;
+			color: $tertiary-color;
+			a {
+				color: white;
+				text-shadow: 1px 1px 1px gray;
+				&:hover {
+					color: $tertiary-color;
+					text-shadow: none;
+				}
+			}
+		}
+
+.cta2-color {
+			background-color: $cta2-color;
+			color: white;
+			a {
+				color: $sig-color;
+				&:hover {
+					color: white;
+				}
+			}
+		}
+
+.cta-color-btn {
+	background-color: $cta2-color;
+	color: $tertiary-color;
+	border: 3px solid $tertiary-color;
+	transition: all 0.1s ease-in-out;
+	&:hover {
+		background-color: $cta2-color;
+		color: white;
+		text-shadow: none;
+	}	
+	&:focus {
+		outline: none;
+	}	
+}
+
+.active-btn {
+	border: 3px solid white;
+	background-color: rgba($cta-color, .7);
+	color: $tertiary-color;
+	&:hover {
+		border: 3px solid white;
+		background-color: rgba($cta-color, .7);
+		color: $tertiary-color;
+	}
+	&:focus {
+		outline: none;
+	}
+}
+
+.list-box {
+	padding-left: 0px;
+	padding-right: 0px;
+
+	ul {
+		margin-left: 20px;
+	}
+
+	ol {
+		margin-left: 25px;
+	}
+}
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 960px;
+    }
+
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
 }
 

@@ -1,10 +1,13 @@
 <div class="app">
     {{!-- this div.app is the component that will always be present so it includes the top nav bar --}}
     <nav>
-       <a class="open-menu" href="#drawer">hamburger</a>
-       <span>searchbox here   (X)</span>
-       <span>[FILTER]</span>
+        <div class="text-center">
+           <a class="open-menu nav-icon" href="#drawer"><span class="glyphicon glyphicon-th-list"></span></a>
+           <input class="input-standard">
+           <a href="#" class="nav-icon"><span class="glyphicon glyphicon-filter"></span></a>
+        </div>
     </nav>
+    <div class="spacer"></div>
    {{outlet}}
 </div>
 

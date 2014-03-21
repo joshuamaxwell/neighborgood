@@ -1,5 +1,6 @@
 App.Router.map(function () {
   // Add your routes here
+  this.route('style-guide');
   this.route('login');
   this.route('profile');
   this.resource('properties', function(){
