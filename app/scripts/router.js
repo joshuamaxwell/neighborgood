@@ -1,7 +1,7 @@
 App.Router.map(function () {
   // Add your routes here
   this.route('login');
-  this.route('profile', {path: '/profile/:profile_id'});
+  this.route('profile');
   this.resource('properties', function(){
     this.route('property', {path: '/:property_id'})
   })

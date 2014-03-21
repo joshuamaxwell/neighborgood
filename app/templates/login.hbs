@@ -5,20 +5,13 @@
 {{!-- none of the model's properties seem to be binding in this template --}}
 <form class="form-horizontal">
   {{#if loginFailed}}
-    <div class="alert">Invalid email or password.</div>
+    <div class="alert">There was an error during login. Try again.</div>
+    <div class="alert">Message: {{loginError}}</div>
   {{/if}}
   
   {{#if isSlowConnection}}
     <div class="alert alert-info">The request seems to be taking more time than usual, please wait.</div>
   {{/if}}
-
-{{!-- I would expect this div.debugging to dynamically update when the App.userProfile model changes since that is the model that my route passes to this template's controller --}}
-  <div class="debugging">
-    loginFailed: {{loginFailed}} <br>
-    isProcessing: {{isProcessing}} <br>
-    isSlowConnection: {{isSlowConnection}} <br>
-    timeout: {{timeout}} <br>
-  </div>
 
   <div class="control-group">
     <span class="control-label">

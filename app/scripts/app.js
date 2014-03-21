@@ -24,6 +24,7 @@ App.auth = new FirebaseSimpleLogin(App.firebaseRef, function(error, user) {
     console.log('there was a problem. Error is: ', error);
     clearTimeout(App.userProfile.get("timeout"));
     App.userProfile.set("loginFailed", true);
+    App.userProfile.set("loginError", error.message);
     App.userProfile.set("isProcessing", false);
     App.userProfile.set("isSlowConnection", false);
     console.log('there was a problem. App.userProfile is: ', App.userProfile);
@@ -32,6 +33,7 @@ App.auth = new FirebaseSimpleLogin(App.firebaseRef, function(error, user) {
     // user authenticated with Firebase
     console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
     clearTimeout(App.userProfile.get("timeout"));
+    App.userProfile.set("loginFailed", false);
     App.userProfile.set("isProcessing", false);
     App.userProfile.set("isSlowConnection", false);
     App.userProfile.set("user", user);

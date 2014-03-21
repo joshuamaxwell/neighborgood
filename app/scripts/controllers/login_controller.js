@@ -34,6 +34,8 @@ App.LoginController = Ember.ObjectController.extend({
           that.set("model.loginFailed", true);
         }
       });
+
+      this.clearForm();
     },
 
     login: function() {
@@ -54,22 +56,31 @@ App.LoginController = Ember.ObjectController.extend({
           password: this.get('password')
         }
       );
+      this.clearForm();
     },
 
     loginFacebook: function(){
       App.auth.login('facebook',{
         scope: 'email'
       });
+      this.clearForm();
     },
   
     loginTwitter: function(){
       App.auth.login('twitter');
+      this.clearForm();
     }
-    
+
   },
 
 
   slowConnection: function() {
     this.set("model.isSlowConnection", true);
   },
+
+  clearForm: function() {
+    this.set('email', '')
+    this.set('password', '')
+  }
+
 });
