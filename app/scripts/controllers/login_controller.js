@@ -69,6 +69,12 @@ App.LoginController = Ember.ObjectController.extend({
     loginTwitter: function(){
       App.auth.login('twitter');
       this.clearForm();
+    },
+
+    logout: function(){
+      App.auth.logout();
+      App.userProfile.set('user', null);
+      this.clearForm();
     }
 
   },

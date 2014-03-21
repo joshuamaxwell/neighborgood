@@ -4,14 +4,6 @@
 {{!-- this is where the problems are --}}
 {{!-- none of the model's properties seem to be binding in this template --}}
 <form class="form-horizontal">
-  {{#if loginFailed}}
-    <div class="alert">There was an error during login. Try again.</div>
-    <div class="alert">Message: {{loginError}}</div>
-  {{/if}}
-  
-  {{#if isSlowConnection}}
-    <div class="alert alert-info">The request seems to be taking more time than usual, please wait.</div>
-  {{/if}}
 
   <div class="control-group">
     <span class="control-label">
@@ -37,4 +29,19 @@
   <button {{action 'register'}} class="btn" {{bind-attr disabled="isProcessing"}}>Sign up</button>
   <button {{action 'loginFacebook'}} class="btn" {{bind-attr disabled="isProcessing"}}>Log in with Facebook</button>
   <button {{action 'loginTwitter'}} class="btn" {{bind-attr disabled="isProcessing"}}>Log in with Twitter</button>
+  <button {{action 'logout'}} class="btn" {{bind-attr disabled="isProcessing"}}>Logout</button>
+
+  {{#if user}}
+    <div>You have successfully logged in!</div>
+    <div>Welcome, {{user.name}} {{user.email}}</div>
+  {{/if}}
+
+  {{#if loginFailed}}
+    <div class="alert">There was an error during login. Try again.</div>
+    <div class="alert">Message: {{loginError}}</div>
+  {{/if}}
+  
+  {{#if isSlowConnection}}
+    <div class="alert alert-info">The request seems to be taking more time than usual, please wait.</div>
+  {{/if}}
 </form>
