@@ -3,7 +3,7 @@
 
 // I was extending Ember.Controller, but THE WHOLE TIME
 // I should have been extending Ember.ObjectController
-App.LoginController = Ember.ObjectController.extend({
+App.AccountController = Ember.ObjectController.extend({
 
   actions: { 
     

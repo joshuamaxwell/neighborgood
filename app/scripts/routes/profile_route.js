@@ -7,7 +7,7 @@ App.ProfileRoute = Ember.Route.extend({
   //then we want to redirect to the login screen
   afterModel: function(user, transition) {
     if (!user) {
-      this.transitionTo('login');
+      this.transitionTo('account');
     }
   }
 });
