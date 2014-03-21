@@ -8,12 +8,12 @@
         <link rel="stylesheet" href="styles/style.css">
         <!-- adding the styling for jquery.mmenu.css -->
         <link rel="stylesheet" href="bower_components/mmenu/src/css/jquery.mmenu.css">
+        <!-- endbuild -->
         <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Cantata+One' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Kreon:300,400,700' rel='stylesheet' type='text/css'>
 
-        <!-- endbuild -->
 </head>
     <body>
         <!-- build:js(app) scripts/components.js -->
@@ -23,12 +23,15 @@
         <script src="bower_components/handlebars/handlebars.runtime.js"></script>
         <script src="@@ember"></script>
         <script src="@@ember_data"></script>
-        <!-- adding the following lines to use Firebase -->
+        <!-- adding the line to use Firebase -->
         <script src="bower_components/firebase/firebase.js"></script>
-        <script src='https://cdn.firebase.com/v0/firebase-simple-login.js'></script>
-        <script src="http://firebase.github.io/emberFire/emberfire-latest.js"></script>
         <!-- endbuild -->
 
+        <!-- firebase-simple-login doesn't seem to load when deployed to gh-pages -->
+        <!-- so I moved it outside of the build tag comments -->
+        <script src='https://cdn.firebase.com/v0/firebase-simple-login.js'></script>
+        <script src="http://firebase.github.io/emberFire/emberfire-latest.js"></script>
+        
         <!-- build:js(.tmp) scripts/templates.js -->
         <script src="scripts/compiled-templates.js"></script>
         <!-- endbuild -->

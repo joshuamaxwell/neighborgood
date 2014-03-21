@@ -8,11 +8,11 @@ App.AccountController = Ember.ObjectController.extend({
   actions: { 
     
     register: function() {
-      console.log('SIGN UP clicked. model in LoginController before manipulation is: ', this.get('model'));
+      console.log('SIGN UP clicked. model in AccountController before manipulation is: ', this.get('model'));
       this.set("model.isProcessing", true);
       this.set("model.loginFailed", false);
       this.set("model.timeout", setTimeout(this.slowConnection.bind(this.get('model')), 5000));
-      console.log('model in LoginController after manipulation is: ', this.get('model'));
+      console.log('model in AccountController after manipulation is: ', this.get('model'));
 
       var that = this;
 
@@ -40,14 +40,14 @@ App.AccountController = Ember.ObjectController.extend({
 
     login: function() {
       //I am expecting for the next three lines of code to modify the model
-      //that is sent to this controller from loginRoute and for those manipulations
+      //that is sent to this controller from AccountRoute and for those manipulations
       //to be instantly shown in the login template
-      console.log('login clicked. model in LoginController before manipulation is: ', this.get('model'));
+      console.log('login clicked. model in AccountController before manipulation is: ', this.get('model'));
       this.set("model.isProcessing", true);
       this.set("model.loginFailed", false);
       this.set("model.timeout", setTimeout(this.slowConnection.bind(this.get('model')), 5000));
 
-      console.log('model in LoginController after manipulation is: ', this.get('model'));
+      console.log('model in AccountController after manipulation is: ', this.get('model'));
 
       //use the auth object's login() method to log the user in
       App.auth.login('password', 

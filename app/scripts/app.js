@@ -5,9 +5,9 @@ var App = window.App = Ember.Application.create();
 App.firebaseRef = new Firebase('https://glaring-fire-2767.firebaseio.com');
 
 //now let's make a generic local user object that can hold some globally needed properties
-//this is the object that I intend to pass into the login controller and template
+//this is the object that I intend to pass into the account controller and template
 //so that the FirebaseSimpleLogin callback function can modify this model
-//and the login template should update
+//and the account template should update
 App.UserProfile = Ember.Object.extend({});
 App.userProfile = App.UserProfile.create({
     loginFailed: false,
