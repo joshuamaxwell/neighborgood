@@ -12,7 +12,8 @@ App.Router.map(function () {
 });
 
 App.Router.reopen({
-  // rootURL: '/' //use this rootURL for dev
+  // rootURL: '/' //I thought we'd need to use this rootURL for dev but looks like it works
+  //either way
   rootURL: '/neighborgood/' //this is where the root will need to change for deployment
 })
 
