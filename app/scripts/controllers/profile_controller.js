@@ -1,1 +1,1 @@
-App.LoginController = Ember.ObjectController.extend({})
+App.ProfileController = Ember.ObjectController.extend({})

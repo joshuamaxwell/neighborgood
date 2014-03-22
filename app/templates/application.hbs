@@ -14,8 +14,11 @@
 {{!-- the navigation drawer is below --}}
 <nav id="drawer">
    <ul class="list">
-      <li><a href="/">Home</a></li>
-      <li><a href="/about/">About us</a></li>
-      <li><a href="/contact/">Contact</a></li>
+      <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+      <li>{{#link-to 'account'}}Account{{/link-to}}</li>
+      <li>{{#link-to 'profile'}}Profile{{/link-to}}</li>
+      <li>{{#link-to 'style-guide'}}Style Guide{{/link-to}}</li>
+      <li>{{#link-to 'properties'}}Search Results{{/link-to}}</li>
+      <li>{{#link-to 'myhomes'}}My Homes{{/link-to}}</li>
    </ul>
 </nav>

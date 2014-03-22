@@ -1,4 +1,4 @@
-App.LoginRoute = Ember.Route.extend({
+App.AccountRoute = Ember.Route.extend({
 
     model: function () {
       //this route returns the App.userProfile to its controller and template

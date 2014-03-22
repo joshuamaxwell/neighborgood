@@ -1,0 +1,55 @@
+{{!-- //this code originally copy pasted from http://blog.sensible.io/2013/05/23/how-to-write-a-login-form.html --}}
+
+
+<h1>My Account</h1>
+{{#if user}}
+  <h3>You have successfully logged in!</h3>
+  <p>Welcome, {{user.name}} {{user.email}}</p>
+{{else}}
+  <h3>Welcome! This is the perfect place for you to log-in or register.</h3>
+  <p>Please enter your email address and password or login through Facebook or Twitter</p>
+{{/if}}
+
+{{#if loginFailed}}
+  <div class="alert">There was an error during login. Try again.</div>
+  <div class="alert">Message: {{loginError}}</div>
+{{/if}}
+
+<form class="form-horizontal">
+
+  <div class="control-group">
+    <span class="control-label">
+      <label>Email</label>
+    </span>
+
+    <span class="controls">
+      {{input value=email type="text"}}
+    </span>
+  </div> {{!-- end control-group --}}
+
+  <div class="control-group">
+    <span class="control-label">
+      <label>Password</label>
+    </span>
+
+    <span class="controls">
+      {{input value=password type="password"}}
+    </span>
+  </div> {{!-- end control-group --}}
+
+  <button {{action 'login'}} class="btn cta-color-btn" {{bind-attr disabled="isProcessing"}}>Log in</button>
+  <button {{action 'register'}} class="btn cta-color-btn" {{bind-attr disabled="isProcessing"}}>Sign up</button>
+
+</form>
+  
+<div>
+  <button {{action 'loginFacebook'}} class="btn cta-color-btn" {{bind-attr disabled="isProcessing"}}>Log in with Facebook</button>
+  <button {{action 'loginTwitter'}} class="btn cta-color-btn" {{bind-attr disabled="isProcessing"}}>Log in with Twitter</button>
+</div>
+
+<button {{action 'logout'}} class="btn cta-color-btn" {{bind-attr disabled="isProcessing"}}>Logout</button>
+
+
+{{#if isSlowConnection}}
+  <div class="alert alert-info">The request seems to be taking more time than usual, please wait.</div>
+{{/if}}
