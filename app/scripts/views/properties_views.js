@@ -1,3 +1,4 @@
+	
 App.PropertiesView = Ember.View.extend({
 
   didInsertElement: function (obj) {
@@ -9,6 +10,7 @@ App.PropertiesView = Ember.View.extend({
     //but now maybe I have a better Idea of what the View is versus the template?
     //not really. good greif. I'm so upset about how long this took
     this.loadMap();
+    // this.loadInstagrams();
   },
 
   //I had started with this .loadMap() function in the controller and then moved it to .activate 
@@ -24,5 +26,4 @@ App.PropertiesView = Ember.View.extend({
     };
     var map = new google.maps.Map(mapCanvas, mapOptions);
   }
-
 })

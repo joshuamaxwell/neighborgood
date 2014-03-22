@@ -1,9 +1,21 @@
-<div id="map-canvas" style="height: 300px;"></div>
+<div id="map-canvas" style="height: 300px;" class="google-map"></div>
 
-<ul>
-  {{#each}}
-  <li class="property">{{address}}</li>
-  {{else}}
-  <li>looks like there are no homes in your query :(</li>
-  {{/each}}
-</ul>
+<div class="col-md-12">
+	<div class="row list-box">
+		<div class="col-md-6">
+			<ul>
+			  {{#each}}
+			  <li class="property">{{address}}</li>
+			  {{else}}
+			  <li>looks like there are no homes in your query :(</li>
+			  {{/each}}
+			</ul>
+
+			<ul>
+				{{#each}}
+				<li class="instagrams">{{link}}</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+</div>

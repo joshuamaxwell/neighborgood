@@ -5,6 +5,7 @@ App.Router.map(function () {
   this.route('profile');
   this.resource('properties', function(){ 
     this.route('property', {path: '/:property_id'});
+    this.route('instagrams', {path:'/:instagram_id'});
   });
   this.resource('myhomes', function(){
     this.route('myhome', {path: '/:property_id'});
