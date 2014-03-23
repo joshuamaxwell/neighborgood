@@ -116,10 +116,16 @@ h1,h2,h3,h4,h5,h6 {
 h1 {
     font-family: 'Kreon', serif;
     font-weight: bold;
+    @media only screen and (max-width: 415px){
+    	font-size: 1.8em;
+    }
 }
 
 h2 {
 	color: $cta2-color;
+	@media only screen and (max-width: 415px){
+    	font-size: 1.7em;
+   }
 }
 
 a {
@@ -184,6 +190,8 @@ input	{
 .header {
     border-bottom: 1px solid #e5e5e5;
     background-color: $sig-color;
+    // background: url('../images/ng-headerpic1.jpg');
+    // background-size: 100% auto;
     color: white;
 
     p {
