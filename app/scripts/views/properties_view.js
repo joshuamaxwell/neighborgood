@@ -20,7 +20,45 @@ App.PropertiesView = Ember.View.extend({
     var mapOptions = {
       center: new google.maps.LatLng(34.842, -82.394),
       zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles: [
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      { "color": "#F5A9A9" }
+    ]
+  },{
+    "featureType": "road.highway",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#F5A9A9" }
+    ]
+  },{
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      { "color": "#46BDBD" }
+    ]
+  },{
+  },{
+    "featureType": "landscape.man_made",
+    "stylers": [
+      { "color": "#E5E3D3" }
+    ]
+  },{
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      { "color": "#B8B6B1" }
+    ]
+  },{
+    "featureType": "water",
+    "stylers": [
+      { "color": "#16F2F2" }
+    ]
+  }
+]
     };
     var map = new google.maps.Map(mapCanvas, mapOptions);
   }
