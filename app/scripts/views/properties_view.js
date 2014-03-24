@@ -69,13 +69,39 @@ App.PropertiesView = Ember.View.extend({
     //....but looks like the best place to do any of this is still inside the view
     // because I don't see any other way to be sure that the DOM has finished
     // rendering
+    console.log('controller variable inthe view ', this.get('controller.model'));
     this.set('googleMap', new google.maps.Map(mapCanvas, mapOptions));
-    this.setMarkers();
+
+    this.setMarker();
+
+    var that=this;
+    this.get('controller.model').forEach(function(property, index, enumerable){
+      console.log('the item.address inside the ember arrayController foreach is ', property.address );
+      that.setMarkers(property);
+    })
     //now i maybe need to run this function over and over for each item in
     //the array by passing the properties in as arguments
   },
 
-  setMarkers: function(){
+  setMarkers: function(property){
+    var that=this;
+    var geocoder = new google.maps.Geocoder();
+    console.log('address inside setMarkers is ', property.address);
+    geocoder.geocode( { 'address': property.address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        // that.get('googleMap').setCenter(results[0].geometry.location); // I don't think I want to bounce around
+        var marker = new google.maps.Marker({
+            map: that.get('googleMap'),
+            title: property.price.toString(),
+            position: results[0].geometry.location 
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  },
+
+  setMarker: function(){
     //need to modify this function to accept arguments from the array
     console.log('setMarkers fired');
     var myLatlng = new google.maps.LatLng(34.842184, -82.395177);
@@ -84,7 +110,7 @@ App.PropertiesView = Ember.View.extend({
     var marker = new google.maps.Marker({
         position: myLatlng,
         map: this.get('googleMap'),
-        title:"Hello World!"
+        title:"Test Marker"
     });
   }
 
