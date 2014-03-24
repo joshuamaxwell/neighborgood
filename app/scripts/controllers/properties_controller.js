@@ -5,4 +5,5 @@ App.PropertiesController = Ember.ArrayController.extend({
     console.log('init run');
   }
 
+
 });

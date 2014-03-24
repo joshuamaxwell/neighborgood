@@ -1,7 +1,7 @@
 App.PropertiesView = Ember.View.extend({
 
-  didInsertElement: function (obj) {
-    this._super();
+  didInsertElement: function () {
+    // this._super(); //I don't think an event has to call this._super()
     console.log('enter the didInsertElement from the view');
 
     //figuring out where to call this .loadMap() function was
@@ -20,9 +20,98 @@ App.PropertiesView = Ember.View.extend({
     var mapOptions = {
       center: new google.maps.LatLng(34.842, -82.394),
       zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles: [
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      { "color": "#F5A9A9" }
+    ]
+  },{
+    "featureType": "road.highway",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#F5A9A9" }
+    ]
+  },{
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      { "color": "#46BDBD" }
+    ]
+  },{
+  },{
+    "featureType": "landscape.man_made",
+    "stylers": [
+      { "color": "#E5E3D3" }
+    ]
+  },{
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      { "color": "#B8B6B1" }
+    ]
+  },{
+    "featureType": "water",
+    "stylers": [
+      { "color": "#16F2F2" }
+    ]
+  }
+]
     };
-    var map = new google.maps.Map(mapCanvas, mapOptions);
+    // I need this map variable to be accessable outside this function. I'd prefer to
+    //store it somewhere in the controller or find out some way
+    //to pass it to the controller.... I FOUND IT. I keep forgetting to always use the 
+    //'getters and setters' I have access to the controller's properties from 
+    //the view, i just have to use the this.get or this.set..
+    //so now I can use a property called 'map' from inside this controller
+    //....but looks like the best place to do any of this is still inside the view
+    // because I don't see any other way to be sure that the DOM has finished
+    // rendering
+    console.log('controller variable inthe view ', this.get('controller.model'));
+    this.set('googleMap', new google.maps.Map(mapCanvas, mapOptions));
+
+    this.setMarker();
+
+    var that=this;
+    this.get('controller.model').forEach(function(property, index, enumerable){
+      console.log('the item.address inside the ember arrayController foreach is ', property.address );
+      that.setMarkers(property);
+    })
+    //now i maybe need to run this function over and over for each item in
+    //the array by passing the properties in as arguments
+  },
+
+  setMarkers: function(property){
+    var that=this;
+    var geocoder = new google.maps.Geocoder();
+    console.log('address inside setMarkers is ', property.address);
+    geocoder.geocode( { 'address': property.address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        // that.get('googleMap').setCenter(results[0].geometry.location); // I don't think I want to bounce around
+        var marker = new google.maps.Marker({
+            map: that.get('googleMap'),
+            title: property.price.toString(),
+            position: results[0].geometry.location 
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  },
+
+  setMarker: function(){
+    //need to modify this function to accept arguments from the array
+    console.log('setMarkers fired');
+    var myLatlng = new google.maps.LatLng(34.842184, -82.395177);
+    
+    // To add the marker to the map, use the 'googleMap' property
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: this.get('googleMap'),
+        title:"Test Marker"
+    });
   }
 
 })
