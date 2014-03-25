@@ -74,6 +74,8 @@ App.PropertiesView = Ember.View.extend({
 
 
     this.pullInstagrams();
+    // created variable to use in the console
+    homeResults = this.pullInstagrams();
 
     var that=this;
     this.get('controller.model').forEach(function(property, index, enumerable){
@@ -84,12 +86,13 @@ App.PropertiesView = Ember.View.extend({
     //the array by passing the properties in as arguments
   },
 
-  mapInstagrams: function(results){
-    console.log(results);
+  mapInstagrams: function(array){
+    console.log('about to run each function over results');
     // isolate the url & the lat/long
-    $.each(results[0]), function(){
-      console.log('Each function ran on results.')
-    };
+    $.each(array, function(index, value){
+      console.log('Each function ran on results.');
+      console.log(index + ":" + value.images.thumbnail.url);  
+    });
   },
 
   setMarkers: function(property){
@@ -114,11 +117,12 @@ App.PropertiesView = Ember.View.extend({
     // Use map center points for Instagram pull radius
     var that=this;
     
+    // pull in Instagram activity via the API
     $.ajax({
       url: 'https://api.instagram.com/v1/media/search?lat=34.842&lng=-82.394&distance=2000&client_id=371ca2f6cfb64bfe9c71847cc6fe52c5&callback=?', 
       dataType: 'jsonp',
       success: function(results){
-        console.log('Look here -', results);
+        console.log('Look here -', results.data);
         that.mapInstagrams(results.data)
       },
       error: function(){

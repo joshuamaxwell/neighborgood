@@ -173,6 +173,7 @@ input	{
 
     @media only screen and (max-width: 500px) {
     	padding: 0px;
+    	padding-left: 10px;
     }
 
     &.input-error {
@@ -211,6 +212,11 @@ input	{
     	color: white;
     }
 
+    @media only screen and (max-width: 415px){
+    	p {
+    		font-size: 1.2em;
+    	}
+    }
     /* Make the masthead heading the same height as the navigation */
 }
 
