@@ -69,24 +69,36 @@ App.PropertiesView = Ember.View.extend({
     //....but looks like the best place to do any of this is still inside the view
     // because I don't see any other way to be sure that the DOM has finished
     // rendering
-    console.log('controller variable inthe view ', this.get('controller.model'));
+    // console.log('controller variable inthe view ', this.get('controller.model'));
     this.set('googleMap', new google.maps.Map(mapCanvas, mapOptions));
 
-    this.setMarker();
+
+    this.pullInstagrams();
+    // created variable to use in the console
+    homeResults = this.pullInstagrams();
 
     var that=this;
     this.get('controller.model').forEach(function(property, index, enumerable){
-      console.log('the item.address inside the ember arrayController foreach is ', property.address );
+      // console.log('the item.address inside the ember arrayController foreach is ', property.address );
       that.setMarkers(property);
     })
     //now i maybe need to run this function over and over for each item in
     //the array by passing the properties in as arguments
   },
 
+  mapInstagrams: function(array){
+    console.log('about to run each function over results');
+    // isolate the url & the lat/long
+    $.each(array, function(index, value){
+      console.log('Each function ran on results.');
+      console.log(index + ":" + value.images.thumbnail.url);  
+    });
+  },
+
   setMarkers: function(property){
     var that=this;
     var geocoder = new google.maps.Geocoder();
-    console.log('address inside setMarkers is ', property.address);
+    // console.log('address inside setMarkers is ', property.address);
     geocoder.geocode( { 'address': property.address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         // that.get('googleMap').setCenter(results[0].geometry.location); // I don't think I want to bounce around
@@ -101,17 +113,23 @@ App.PropertiesView = Ember.View.extend({
     });
   },
 
-  setMarker: function(){
-    //need to modify this function to accept arguments from the array
-    console.log('setMarkers fired');
-    var myLatlng = new google.maps.LatLng(34.842184, -82.395177);
+  pullInstagrams: function(){
+    // Use map center points for Instagram pull radius
+    var that=this;
     
-    // To add the marker to the map, use the 'googleMap' property
-    var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: this.get('googleMap'),
-        title:"Test Marker"
+    // pull in Instagram activity via the API
+    $.ajax({
+      url: 'https://api.instagram.com/v1/media/search?lat=34.842&lng=-82.394&distance=2000&client_id=371ca2f6cfb64bfe9c71847cc6fe52c5&callback=?', 
+      dataType: 'jsonp',
+      success: function(results){
+        console.log('Look here -', results.data);
+        that.mapInstagrams(results.data)
+      },
+      error: function(){
+        console.log('Bummer, something is wrong.')
+      }
     });
+
   }
 
 })
