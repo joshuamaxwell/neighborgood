@@ -4,6 +4,13 @@ var App = window.App = Ember.Application.create();
 //reference in App.firebaseRef
 App.firebaseRef = new Firebase('https://glaring-fire-2767.firebaseio.com');
 
+App.ApplicationAdapter = DS.FirebaseAdapter.extend({
+    // firebase: new Firebase("https://glaring-fire-2767.firebaseio.com")
+    firebase: App.firebaseRef //first I'll try passing in the existing reference to Firebase
+});
+
+App.ApplicationSerializer = DS.FirebaseSerializer.extend();
+
 //now let's make a generic local user object that can hold some globally needed properties
 //this is the object that I intend to pass into the account controller and template
 //so that the FirebaseSimpleLogin callback function can modify this model

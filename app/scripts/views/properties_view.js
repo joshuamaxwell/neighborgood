@@ -2,13 +2,13 @@ App.PropertiesView = Ember.View.extend({
 
   didInsertElement: function () {
     // this._super(); //I don't think an event has to call this._super()
-    console.log('enter the didInsertElement from the view');
 
     //figuring out where to call this .loadMap() function was
     //one of the most difficult things I've done in life..
     //but now maybe I have a better Idea of what the View is versus the template?
     //not really. good greif. I'm so upset about how long this took
     this.loadMap();
+
   },
 
   //I had started with this .loadMap() function in the controller and then moved it to .activate 
@@ -21,44 +21,7 @@ App.PropertiesView = Ember.View.extend({
       center: new google.maps.LatLng(34.842, -82.394),
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
-      styles: [
-  {
-    "featureType": "road.highway",
-    "elementType": "geometry.stroke",
-    "stylers": [
-      { "color": "#F5A9A9" }
-    ]
-  },{
-    "featureType": "road.highway",
-    "elementType": "geometry.fill",
-    "stylers": [
-      { "color": "#F5A9A9" }
-    ]
-  },{
-    "featureType": "water",
-    "elementType": "geometry",
-    "stylers": [
-      { "color": "#46BDBD" }
-    ]
-  },{
-  },{
-    "featureType": "landscape.man_made",
-    "stylers": [
-      { "color": "#E5E3D3" }
-    ]
-  },{
-    "featureType": "poi",
-    "elementType": "geometry",
-    "stylers": [
-      { "color": "#B8B6B1" }
-    ]
-  },{
-    "featureType": "water",
-    "stylers": [
-      { "color": "#16F2F2" }
-    ]
-  }
-]
+      styles: this.mapStyles
     };
     // I need this map variable to be accessable outside this function. I'd prefer to
     //store it somewhere in the controller or find out some way
@@ -73,7 +36,6 @@ App.PropertiesView = Ember.View.extend({
     this.set('googleMap', new google.maps.Map(mapCanvas, mapOptions));
 
 
-    this.pullInstagrams();
     // created variable to use in the console
     homeResults = this.pullInstagrams();
 
@@ -86,12 +48,30 @@ App.PropertiesView = Ember.View.extend({
     //the array by passing the properties in as arguments
   },
 
-  mapInstagrams: function(array){
-    console.log('about to run each function over results');
+  mapInstagram: function(instagram){
+    console.log('about to run each function over instagram results');
     // isolate the url & the lat/long
-    $.each(array, function(index, value){
-      console.log('Each function ran on results.');
-      console.log(index + ":" + value.images.thumbnail.url);  
+    console.log(instagram, " : ", instagram.images.thumbnail.url);  
+    var that=this;
+
+    var lat = instagram.location.latitude;
+    var lon = instagram.location.longitude;
+    var latlon = new google.maps.LatLng(lat, lon);
+    // console.log('address inside setMarkers is ', property.address);
+    var image = {
+      url: instagram.images.thumbnail.url,
+      // This marker is 20 pixels wide by 32 pixels tall.
+      size: new google.maps.Size(20, 32),
+      // The origin for this image is 0,0.
+      origin: new google.maps.Point(0,0),
+      // The anchor for this image is the base of the flagpole at 0,32.
+      anchor: new google.maps.Point(0, 32)
+    };
+    var marker = new google.maps.Marker({
+        map: that.get('googleMap'),
+        title: instagram.caption.text,
+        position: latlon,
+        icon: image
     });
   },
 
@@ -99,16 +79,16 @@ App.PropertiesView = Ember.View.extend({
     var that=this;
     var geocoder = new google.maps.Geocoder();
     // console.log('address inside setMarkers is ', property.address);
-    geocoder.geocode( { 'address': property.address}, function(results, status) {
+    geocoder.geocode( { 'address': property.get('address')}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         // that.get('googleMap').setCenter(results[0].geometry.location); // I don't think I want to bounce around
         var marker = new google.maps.Marker({
             map: that.get('googleMap'),
-            title: property.price.toString(),
+            title: property.get('price').toString(),
             position: results[0].geometry.location 
         });
       } else {
-        alert('Geocode was not successful for the following reason: ' + status);
+        console.log('Geocode was not successful for the following reason: ', status);
       }
     });
   },
@@ -122,14 +102,55 @@ App.PropertiesView = Ember.View.extend({
       url: 'https://api.instagram.com/v1/media/search?lat=34.842&lng=-82.394&distance=2000&client_id=371ca2f6cfb64bfe9c71847cc6fe52c5&callback=?', 
       dataType: 'jsonp',
       success: function(results){
-        console.log('Look here -', results.data);
-        that.mapInstagrams(results.data)
+        //
+        results.data.forEach(function(value, index){
+          that.mapInstagram(value)
+        })
+        // that.mapInstagrams(results.data)
       },
       error: function(){
-        console.log('Bummer, something is wrong.')
+        console.log('Bummer, something is wrong in pullInstagrams function.')
       }
     });
 
-  }
+  },
 
-})
+  mapStyles: [
+    {
+      "featureType": "road.highway",
+      "elementType": "geometry.stroke",
+      "stylers": [
+        { "color": "#F5A9A9" }
+      ]
+    },{
+      "featureType": "road.highway",
+      "elementType": "geometry.fill",
+      "stylers": [
+        { "color": "#F5A9A9" }
+      ]
+    },{
+      "featureType": "water",
+      "elementType": "geometry",
+      "stylers": [
+        { "color": "#46BDBD" }
+      ]
+    },{
+      "featureType": "landscape.man_made",
+      "stylers": [
+        { "color": "#E5E3D3" }
+      ]
+    },{
+      "featureType": "poi",
+      "elementType": "geometry",
+      "stylers": [
+        { "color": "#B8B6B1" }
+      ]
+    },{
+      "featureType": "water",
+      "stylers": [
+        { "color": "#16F2F2" }
+      ]
+    }
+  ]
+
+});
