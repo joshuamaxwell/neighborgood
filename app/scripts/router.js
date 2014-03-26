@@ -7,7 +7,7 @@ App.Router.map(function () {
     this.route('property', {path: '/:property_id'});
   });
   this.resource('myhomes', function(){
-    this.route('myhome', {path: '/:property_id'});
+    this.route('myhome', {path: '/:property_id'}); //I think we'll end up removing this route
   });
 });
 
