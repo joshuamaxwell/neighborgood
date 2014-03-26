@@ -72,4 +72,9 @@ $(function(){
       selectedClass: "active"
     });
        
-})
+});
+
+// Adding class on scroll to make navigation become transparent
+$(document).on("scroll", function(){
+    $('.navigation-bar').toggleClass("foggy", $(document).scrollTop()>40);
+});
