@@ -48,11 +48,30 @@ App.PropertiesView = Ember.View.extend({
     //the array by passing the properties in as arguments
   },
 
-  mapInstagrams: function(array){
+  mapInstagram: function(instagram){
     console.log('about to run each function over instagram results');
     // isolate the url & the lat/long
-    $.each(array, function(index, value){
-      // console.log(index + ":" + value.images.thumbnail.url);  
+    console.log(instagram, " : ", instagram.images.thumbnail.url);  
+    var that=this;
+
+    var lat = instagram.location.latitude;
+    var lon = instagram.location.longitude;
+    var latlon = new google.maps.LatLng(lat, lon);
+    // console.log('address inside setMarkers is ', property.address);
+    var image = {
+      url: instagram.images.thumbnail.url,
+      // This marker is 20 pixels wide by 32 pixels tall.
+      size: new google.maps.Size(20, 32),
+      // The origin for this image is 0,0.
+      origin: new google.maps.Point(0,0),
+      // The anchor for this image is the base of the flagpole at 0,32.
+      anchor: new google.maps.Point(0, 32)
+    };
+    var marker = new google.maps.Marker({
+        map: that.get('googleMap'),
+        title: instagram.caption.text,
+        position: latlon,
+        icon: image
     });
   },
 
@@ -83,8 +102,11 @@ App.PropertiesView = Ember.View.extend({
       url: 'https://api.instagram.com/v1/media/search?lat=34.842&lng=-82.394&distance=2000&client_id=371ca2f6cfb64bfe9c71847cc6fe52c5&callback=?', 
       dataType: 'jsonp',
       success: function(results){
-        // console.log('Look here -', results.data);
-        that.mapInstagrams(results.data)
+        //
+        results.data.forEach(function(value, index){
+          that.mapInstagram(value)
+        })
+        // that.mapInstagrams(results.data)
       },
       error: function(){
         console.log('Bummer, something is wrong in pullInstagrams function.')

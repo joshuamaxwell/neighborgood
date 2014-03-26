@@ -8,5 +8,11 @@ App.PropertyRoute = Ember.Route.extend({
     return this.store.find('properties', params.property_id);
   },
 
+  setupController: function(controller, model){
+    // console.log('controller: ', controller);
+    // console.log('model: ', model);
+    controller.set('model', model);
+  }
+
   
 })
