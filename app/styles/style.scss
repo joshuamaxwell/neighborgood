@@ -50,54 +50,7 @@ $cta-color: #16F2F2;
 $cta2-color: #46BDBD;
 $sig-color-link: white;
 $sig-color-linkhover: $secondary-color;
-$sig-color-opaque: rgba(242, 51, 22, 0.70);
-
-// Nav Styling
-nav {
-  padding: 5px 5px;
-  background-color: $sig-color;
-  color: white;
-  border-bottom: 1px solid $accent-color;
-  height: 60px;
-  vertical-align: center;
-  width: 100%;
-  position: fixed;
-  z-index: 10;
-
-  .glyphicon {
-  	font-size: 25px;
-  	top: 5px;
-  }
-
-  .nav-icon {
-  	margin-left: 5px;
-  }
-
-  a {
-  	color: $sig-color-link;
-
-  	&:hover {
-  		color: $sig-color-linkhover;
-  	}
-  }
-
-  .open-menu {
-  	float: left;
-  	margin-left: 10px;
-  }
-
-  @media only screen and (max-width: 500px) {
-  	height: 45px;
-  	line-height: 30px;
-  }
-}
-
-.spacer {
-	height: 60px; 
-	@media only screen and (max-width: 500px) {
-		height: 45px;
-	}
-}
+$sig-color-opaque: rgba(242, 51, 22, 0.80);
 
 // Body and tag styling
 body {
@@ -146,6 +99,71 @@ ul {
 ol {
 	list-style: decimal;
 }
+
+// Nav Styling
+nav {
+  padding: 5px 5px;
+  color: white;
+  border-bottom: 1px solid $accent-color;
+  height: 60px;
+  vertical-align: center;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+
+  .glyphicon {
+  	font-size: 25px;
+  	top: 5px;
+  }
+
+  .nav-icon {
+  	margin-left: 5px;
+  }
+
+  a {
+  	color: $sig-color-link;
+
+  	&:hover {
+  		color: $sig-color-linkhover;
+  	}
+  }
+
+  .open-menu {
+  	float: left;
+  	margin-left: 10px;
+  }
+
+  @media only screen and (max-width: 500px) {
+  	height: 50px;
+  	line-height: 30px;
+  }
+}
+
+.spacer {
+	height: 60px; 
+	background-color: $sig-color;
+	@media only screen and (max-width: 500px) {
+		height: 45px;
+	}
+}
+
+.navigation-bar {
+	background-color: $sig-color;
+	transition: all 0.1s ease-in-out;
+
+	// Change background transparency
+	&.foggy {
+		transition: all 1s ease-in-out;
+		background-color: $sig-color-opaque;
+	}
+
+	.filter-icon {
+		display: none;
+	}
+}
+
+
+
 
 input	{
 	border: 1px solid $secondary-color;
