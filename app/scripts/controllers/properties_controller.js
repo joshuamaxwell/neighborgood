@@ -2,16 +2,14 @@ App.PropertiesController = Ember.ArrayController.extend({
 
   init: function(){ 
     this._super();
-    console.log('init run');
     this.send('saveProperty', {property_id: 5555559, address: '103 Tyler Street, Grovetown, GA 30813', saved: true});
   },
 
   actions: {
     saveProperty: function(property){
-      console.log('saveProperty executed: ', property);
       var myhome = this.store.createRecord('myhomes', property);
       myhome.save().then(function(myhome){
-        console.log('did it work?????? ', myhome);
+        console.log('home saved to firebase ', property.property_id);
       }, function(myhome){
         console.log('i think the save failed ', myhome);
       });
