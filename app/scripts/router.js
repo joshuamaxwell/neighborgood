@@ -3,9 +3,9 @@ App.Router.map(function () {
   this.route('style-guide');
   this.route('account');
   this.route('profile');
-  this.resource('properties', function(){ 
-    this.route('property', {path: '/:property_id'});
-  });
+  this.resource('properties'); 
+  this.resource('property', {path: '/:property_id'});
+  
   this.resource('myhomes', function(){
     this.route('myhome', {path: '/:property_id'}); //I think we'll end up removing this route
   });

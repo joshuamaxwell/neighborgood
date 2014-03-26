@@ -94,42 +94,41 @@ App.PropertiesView = Ember.View.extend({
   },
 
   mapStyles: [
-  {
-    "featureType": "road.highway",
-    "elementType": "geometry.stroke",
-    "stylers": [
-      { "color": "#F5A9A9" }
-    ]
-  },{
-    "featureType": "road.highway",
-    "elementType": "geometry.fill",
-    "stylers": [
-      { "color": "#F5A9A9" }
-    ]
-  },{
-    "featureType": "water",
-    "elementType": "geometry",
-    "stylers": [
-      { "color": "#46BDBD" }
-    ]
-  },{
-  },{
-    "featureType": "landscape.man_made",
-    "stylers": [
-      { "color": "#E5E3D3" }
-    ]
-  },{
-    "featureType": "poi",
-    "elementType": "geometry",
-    "stylers": [
-      { "color": "#B8B6B1" }
-    ]
-  },{
-    "featureType": "water",
-    "stylers": [
-      { "color": "#16F2F2" }
-    ]
-  }
-]
+    {
+      "featureType": "road.highway",
+      "elementType": "geometry.stroke",
+      "stylers": [
+        { "color": "#F5A9A9" }
+      ]
+    },{
+      "featureType": "road.highway",
+      "elementType": "geometry.fill",
+      "stylers": [
+        { "color": "#F5A9A9" }
+      ]
+    },{
+      "featureType": "water",
+      "elementType": "geometry",
+      "stylers": [
+        { "color": "#46BDBD" }
+      ]
+    },{
+      "featureType": "landscape.man_made",
+      "stylers": [
+        { "color": "#E5E3D3" }
+      ]
+    },{
+      "featureType": "poi",
+      "elementType": "geometry",
+      "stylers": [
+        { "color": "#B8B6B1" }
+      ]
+    },{
+      "featureType": "water",
+      "stylers": [
+        { "color": "#16F2F2" }
+      ]
+    }
+  ]
 
-})
+});

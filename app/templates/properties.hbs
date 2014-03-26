@@ -6,7 +6,9 @@
 			<h1>Results for Greenville, SC</h1>
 			<ul>
 			  {{#each}}
-			  <a href="#"><li class="property">{{address}}</li></a>
+				  {{#link-to 'property' this}}
+				  	<li class="property">{{address}}</li>
+				  {{/link-to}}
 			  {{else}}
 			  <li>looks like there are no homes in your query :(</li>
 			  {{/each}}
