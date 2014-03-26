@@ -7,7 +7,7 @@
 			<ul>
 			  {{#each}}
 				  {{#link-to 'property' this}}
-				  	<li class="property">{{address}}</li>
+				  	<li class="property" {{action 'saveProperty' this}}>{{address}}</li>
 				  {{/link-to}}
 			  {{else}}
 			  <li>looks like there are no homes in your query :(</li>
