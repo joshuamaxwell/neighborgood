@@ -1,24 +1,44 @@
-<div id="map-canvas" style="height: 300px;" class="google-map"></div>
+<div class="scss-map-canvas">
+	<div id="map-canvas" style="height: 300px;" class="google-map"></div>
+</div>
 
 <div class="col-md-12">
 	<div class="row list-box">
-		<div class="col-md-6">
+		<div class="pagebar">
 			<h1>Results for Greenville, SC</h1>
-			<ul>
-			  {{#each}}
-				  {{#link-to 'property' this}}
-				  	<li class="property">{{address}}</li>
-				  {{/link-to}}
-			  {{else}}
-			  <li>looks like there are no homes in your query :(</li>
-			  {{/each}}
-			</ul>
+		</div>
+		<div class="container">
+			<div class="col-md-12">
+				{{!-- <h1>Results for Greenville, SC</h1> --}}
+				<div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+					<ul = class"list-group">
+					  {{#each}}
+						  {{#link-to 'property' this}}
+						  	<li class="property list-group-item row">
+						  		<p>{{address}}</p>
+						  		<h4>${{price}}</h4>
+						  		<div>
+						  			<div class="col-md-4 col-sm-4 col-xs-4 home-info">
+							  			<h5>Bedrooms: {{bedrooms}}</h5>
+						  			</div>
+						  			<div class="col-md-4 col-sm-4 col-xs-4 home-info">
+							  			<h5>Bathrooms: {{bathrooms}}</h5>
+						  			</div>
+						  		</div>
+						  	</li>
+						  {{/link-to}}
+					  {{else}}
+					  <li class='list-group-item property'>looks like there are no homes in your query :(</li>
+					  {{/each}}
+					</ul>
+				</div>
 
-			<ul>
-				{{#each}}
-				<li class="instagrams">{{link}}</li>
-				{{/each}}
-			</ul>
+			{{!-- 	<ul>
+					{{#each}}
+					<li class="instagrams">{{link}}</li>
+					{{/each}}
+				</ul> --}}
+			</div>
 		</div>
 	</div>
 </div>
