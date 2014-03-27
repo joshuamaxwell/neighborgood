@@ -59,9 +59,9 @@ App.PropertiesView = Ember.View.extend({
     var latlon = new google.maps.LatLng(lat, lon);
     // console.log('address inside setMarkers is ', property.address);
     var image = {
-      url: instagram.images.thumbnail.url,
+      url: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTd_z4ttYllDoWctnMGoRg8nD1wb8udfbtthirjurZtnLvrp1cm',
       // This marker is 20 pixels wide by 32 pixels tall.
-      size: new google.maps.Size(20, 32),
+      size: new google.maps.Size(30, 30),
       // The origin for this image is 0,0.
       origin: new google.maps.Point(0,0),
       // The anchor for this image is the base of the flagpole at 0,32.

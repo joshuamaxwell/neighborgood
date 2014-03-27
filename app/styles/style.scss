@@ -50,54 +50,7 @@ $cta-color: #16F2F2;
 $cta2-color: #46BDBD;
 $sig-color-link: white;
 $sig-color-linkhover: $secondary-color;
-$sig-color-opaque: rgba(242, 51, 22, 0.70);
-
-// Nav Styling
-nav {
-  padding: 5px 5px;
-  background-color: $sig-color;
-  color: white;
-  border-bottom: 1px solid $accent-color;
-  height: 60px;
-  vertical-align: center;
-  width: 100%;
-  position: fixed;
-  z-index: 10;
-
-  .glyphicon {
-  	font-size: 25px;
-  	top: 5px;
-  }
-
-  .nav-icon {
-  	margin-left: 5px;
-  }
-
-  a {
-  	color: $sig-color-link;
-
-  	&:hover {
-  		color: $sig-color-linkhover;
-  	}
-  }
-
-  .open-menu {
-  	float: left;
-  	margin-left: 10px;
-  }
-
-  @media only screen and (max-width: 500px) {
-  	height: 45px;
-  	line-height: 30px;
-  }
-}
-
-.spacer {
-	height: 60px; 
-	@media only screen and (max-width: 500px) {
-		height: 45px;
-	}
-}
+$sig-color-opaque: rgba(242, 51, 22, 0.80);
 
 // Body and tag styling
 body {
@@ -146,6 +99,71 @@ ul {
 ol {
 	list-style: decimal;
 }
+
+// Nav Styling
+nav {
+  padding: 5px 5px;
+  color: white;
+  border-bottom: 1px solid $accent-color;
+  height: 60px;
+  vertical-align: center;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+
+  .glyphicon {
+  	font-size: 25px;
+  	top: 5px;
+  }
+
+  .nav-icon {
+  	margin-left: 5px;
+  }
+
+  a {
+  	color: $sig-color-link;
+
+  	&:hover {
+  		color: $sig-color-linkhover;
+  	}
+  }
+
+  .open-menu {
+  	float: left;
+  	margin-left: 10px;
+  }
+
+  @media only screen and (max-width: 500px) {
+  	height: 50px;
+  	line-height: 30px;
+  }
+}
+
+.spacer {
+	height: 60px; 
+	background-color: $sig-color;
+	@media only screen and (max-width: 500px) {
+		height: 45px;
+	}
+}
+
+.navigation-bar {
+	background-color: $sig-color;
+	transition: all 0.1s ease-in-out;
+
+	// Change background transparency
+	&.foggy {
+		transition: all 1s ease-in-out;
+		background-color: $sig-color-opaque;
+	}
+
+	.filter-icon {
+		display: none;
+	}
+}
+
+
+
 
 input	{
 	border: 1px solid $secondary-color;
@@ -319,6 +337,7 @@ span.font4 {
 		}
 }
 
+// Color variables
 .primary-color{
 			background-color: $primary-color;
 			color: $tertiary-color;
@@ -434,11 +453,46 @@ span.font4 {
 	padding-right: 0px;
 
 	ul {
-		margin-left: 20px;
+		margin-left: 0px;
 	}
 
 	ol {
 		margin-left: 25px;
+	}
+}
+
+.centering-wrapper {
+
+}
+// Properties view (with map)
+.scss-map-canvas {
+	box-shadow: 0px -2px 15px rgb(175, 175, 175);
+}
+
+.pagebar {
+	background-color: $tertiary-color;
+	color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	margin-top: 0;
+	text-align: center;
+	margin-bottom: 10px;
+	h1 {
+		color: white;
+	}
+}
+
+.property {
+	padding-left: 40px;
+	@media screen and (max-width: 550px) {
+		padding-left: 20px;
+	}
+	p {
+		font-size: 1.3em;
+	}
+	.home-info {
+		padding-left: 0px;
 	}
 }
 /* Responsive: Portrait tablets and up */
