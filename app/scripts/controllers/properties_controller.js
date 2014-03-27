@@ -28,7 +28,7 @@ App.PropertiesController = Ember.ArrayController.extend({
       myhome = this.store.createRecord('myhomes', myhome);
       console.log('this is home to be saved inside saveProperty ', myhome);
       myhome.save();
-      this.store.push(App.userProfile.user.id, myhome);
+      // this.store.push(App.userProfile.user.id, myhome);
     }
 
   }

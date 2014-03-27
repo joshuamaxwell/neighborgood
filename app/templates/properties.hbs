@@ -14,7 +14,7 @@
 					<ul = class"list-group">
 					  {{#each}}
 						  {{#link-to 'property' this}}
-						  	<li class="property list-group-item row">
+						  	<li class="property list-group-item row" {{action 'saveProperty' this}}>
 						  		<p>{{address}}</p>
 						  		<h4>${{price}}</h4>
 						  		<div>
