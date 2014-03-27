@@ -2,7 +2,7 @@ App.PropertiesController = Ember.ArrayController.extend({
 
   init: function(){ 
     this._super();
-    this.send('saveProperty', {property_id: 5555559, address: '103 Tyler Street, Grovetown, GA 30813', saved: true});
+    // this.send('saveProperty', {property_id: 5555559, address: '103 Tyler Street, Grovetown, GA 30813', saved: true});
     console.log('inside PropertiesController with model ', this.get('model'));
   },
 

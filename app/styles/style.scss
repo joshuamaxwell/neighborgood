@@ -337,6 +337,7 @@ span.font4 {
 		}
 }
 
+// Color variables
 .primary-color{
 			background-color: $primary-color;
 			color: $tertiary-color;
@@ -452,11 +453,46 @@ span.font4 {
 	padding-right: 0px;
 
 	ul {
-		margin-left: 20px;
+		margin-left: 0px;
 	}
 
 	ol {
 		margin-left: 25px;
+	}
+}
+
+.centering-wrapper {
+
+}
+// Properties view (with map)
+.scss-map-canvas {
+	box-shadow: 0px -2px 15px rgb(175, 175, 175);
+}
+
+.pagebar {
+	background-color: $tertiary-color;
+	color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	margin-top: 0;
+	text-align: center;
+	margin-bottom: 10px;
+	h1 {
+		color: white;
+	}
+}
+
+.property {
+	padding-left: 40px;
+	@media screen and (max-width: 550px) {
+		padding-left: 20px;
+	}
+	p {
+		font-size: 1.3em;
+	}
+	.home-info {
+		padding-left: 0px;
 	}
 }
 /* Responsive: Portrait tablets and up */
