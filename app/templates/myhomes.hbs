@@ -1,1 +1,8 @@
 <h1>My Homes</h1>
+<ul>
+{{#each}}
+  {{#link-to 'property' this}}
+    <li>{{address}}</li>
+  {{/link-to}}
+{{/each}}
+</ul>

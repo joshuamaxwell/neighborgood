@@ -8,5 +8,10 @@
   <li>yearBuilt: {{yearBuilt}}</li>
 </ul>
 <p>description: {{description}}</p>
-<button {{action 'printModel'}} class="btn cta-color-btn">Print Model</button>
-<button {{action 'pullInstagrams'}} class="btn cta-color-btn">Pull Instagrams</button>
+{{!-- <button {{action 'printModel'}} class="btn cta-color-btn">Print Model</button>
+<button {{action 'pullInstagrams'}} class="btn cta-color-btn">Pull Instagrams</button> --}}
+{{#each instagramPhotos}}
+  <div>
+    <img {{bind-attr src=images.thumbnail.url}} alt="Instagram Photo">
+  </div>
+{{/each}}

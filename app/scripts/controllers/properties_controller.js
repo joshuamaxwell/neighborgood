@@ -2,26 +2,33 @@ App.PropertiesController = Ember.ArrayController.extend({
 
   init: function(){ 
     this._super();
-    // this.send('saveProperty', {property_id: 5555559, address: '103 Tyler Street, Grovetown, GA 30813', saved: true});
     console.log('inside PropertiesController with model ', this.get('model'));
   },
 
   actions: {
     saveProperty: function(property){
-      var myhome = this.store.createRecord('myhomes', property);
-      myhome.save().then(function(myhome){
-        console.log('home saved to firebase ', property.property_id);
-      }, function(myhome){
-        console.log('i think the save failed ', myhome);
-      });
-
-      // console.log('what\'s in store? ', this.store.find('myhomes'));
-      //this function should be sent the ID and Address of a home
-      //that the user wants to save
-      //this function should then save those two properties 
-      //in addition to the user's id to the myhomes array model
-      //I'm not sure how to do that since this controller's model is a 'Property'
-      
+      //I'm having to do all of this because I don't know how to 
+      //relay the actual 'property' object nor do I know how to reference it
+      //so this is the next best thing for now. it's basically just a copy of the 'property' 
+      //model that gets sent into the 'myhomes' bucket
+      //which means it can get out of sync with the actual 'property' model
+      //on the server or theoretically on zillow
+      var myhome = {
+        address: property.get('address'),
+        price: property.get('price'),
+        bedrooms: property.get('bedrooms'),
+        bathrooms: property.get('bathrooms'),
+        squarefeet: property.get('squarefeet'),
+        yearBuilt: property.get('yearBuilt'),
+        description: property.get('description'),
+        id: property.get('id'),
+        saved: true,
+        clickDate: Date.now()
+      }
+      myhome = this.store.createRecord('myhomes', myhome);
+      console.log('this is home to be saved inside saveProperty ', myhome);
+      myhome.save();
+      // this.store.push(App.userProfile.user.id, myhome);
     }
 
   }

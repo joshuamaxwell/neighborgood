@@ -69,7 +69,7 @@ App.PropertiesView = Ember.View.extend({
     };
     var marker = new google.maps.Marker({
         map: that.get('googleMap'),
-        title: instagram.caption.text,
+        title: instagram.caption?instagram.caption.text:'(no caption)',
         position: latlon,
         icon: image
     });
