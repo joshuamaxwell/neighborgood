@@ -1,22 +1,23 @@
 <div class="welcome">
   {{!-- this "index.hbs" is what visitors will see if they go directly to root url --}}
-		<div class="welcome-line2-background">
-		</div>
-		<div class="container">
-			<div class="welcome-copy">
-				<div class="welcome-line1">
-			    <span>Finding the right home can be a challenge.</span> 
-				</div>
-				<div class="welcome-line2 pull-right">
-			    <span>Finding the right neighborhood doesn't have to be.</span>
-				</div>
-				<div class="welcome-line3">
-			    <span>Find Your New Neighborhood.</span>
-				</div>
+	<div class="welcome-line2-background">
+	</div>
+	<div class="container">
+		<div class="welcome-copy">
+			<div class="welcome-line1">
+		    <span>Finding the right home can be a challenge.</span> 
 			</div>
-		</div>    
+			<div class="welcome-line2 pull-right">
+		    <span>Finding the right neighborhood doesn't have to be.</span>
+			</div>
+			<div class="welcome-line3">
+		    <span>Find Your New Neighborhood.</span>
+			</div>
+		</div>
+	</div>    
 </div>
-<div class="app-intro">
+{{!-- Begin NeighborGood Intoductions Section --}}
+<div class="neighborgood-intro">
 	<div class="container">
 		<div class="section-title">
 			<h1>Welcome to the <span class="font2">NeighborGood</span> app!</h1>
@@ -24,7 +25,8 @@
 		<p>The idea for <span class="font2">NeighborGood</span> came out of the personal experience of trying to buy my first home. Finding a new place to live has two parts: the house and the neighborhood. Finding information from the internet about a particular neighborhood can be difficult. Our goal with this project was to make that process simple and fun.</p>
 		<div class="row">
 			<div class="col-md-12 col-sm-12 col-xs-12">
-				<div class="divider col-md-12"></div>
+				<div class="divider col-md-12">
+				</div>
 			</div>
 			<div class="col-md-12 col-sm-12 col-xs-12 section-title">
 				<h2>Use <span class="font2">NeighborGood</span> to do your research.</h2>
@@ -38,7 +40,8 @@
 				</div>
 			</div>
 			<div class="col-md-12 col-sm-12 col-xs-12">
-				<div class="divider col-md-12"></div>
+				<div class="divider col-md-12">
+				</div>
 			</div>
 			<div class="col-md-12 col-sm-12 col-xs-12 section-title">
 				<h2>Even on the go.</h2>
@@ -51,9 +54,10 @@
 					<img src="images/actionshot1b.png" class="img-circle">
 				</div>
 			</div>
-		</div>
-	</div>
-</div>
+		</div> {{!-- close row --}}
+	</div> {{!-- close container --}}
+</div> {{!-- close neighborgood-intro--}}
+{{!-- Author Section --}}
 <div class="createdby-section tertiary-color">
 	<div class="container">
 		<div class="row">
@@ -73,7 +77,7 @@
 					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				</div>
-			</div>
+			</div> {{!-- close creator-info --}}
 			<div class="col-md-6 col-sm-6 creator-info">
 				<div class="creator-mugshot col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2 col-xs-6 col-xs-offset-3">
 					<img src="images/mug-daniel.jpg" class="img-circle">
@@ -82,6 +86,7 @@
 					<h3>Daniel Donaldson</h3>
 					<p>As a recent graduate of The Iron Yard Academy, Daniel loves solving UX/UI problems through better code. He is especially driven toward improving communities, making this project an intersection of several passions.</p>
 				</div>
-			</div>	
-	</div>
-</div>
+			</div>	{{!-- close creator-info --}}
+		</div>
+	</div> {{!-- close container --}}
+</div> {{!-- close createdby-section --}}
