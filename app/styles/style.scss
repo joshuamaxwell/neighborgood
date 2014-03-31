@@ -720,10 +720,24 @@ span.font4 {
 		margin-top: 0px;
 	}
 
+.square-maker {
+	// overflow: hidden;
+	// position: relative;
 	img {
-		width: 100%;
+		// width: 140%;
+		// position: absolute;
+		// top: 0;
+		// left: -45px;
+	}
+
+	&.col-md-5 {
+		// height: 400px;
+	}
+	.square-imager {
 	}
 }
+}
+
 
 .home-description {
 	height: 100px;
