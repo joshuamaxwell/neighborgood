@@ -39,10 +39,12 @@ App.PropertiesController = Ember.ArrayController.extend({
     //this is a new function that will look up the search bar parameters
     // and use geocode to get a latlon which it then feeds
     //into the google map setup
-      lookupAddress: function(address){
+      lookupAddress: function(searchParams){
+        //default to Greenville, SC
+        this.set('application.searchParams', searchParams?searchParams:'Greenville, SC');
         var geocoder = new google.maps.Geocoder();
         var that = this;
-        geocoder.geocode( { 'address': address }, function(results, status) {
+        geocoder.geocode( { 'address': this.get('application.searchParams') }, function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
             var latlon = results[0].geometry.location;
             var lat = results[0].geometry.location.d;

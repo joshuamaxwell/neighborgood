@@ -4,7 +4,7 @@
         <div class="text-center">
            <a class="open-menu nav-icon" href="#drawer"><span class="glyphicon glyphicon-th-list"></span></a>
            {{input class="input-standard" placeholder="Find a home" value=searchParams}}
-           {{#link-to 'properties' class="nav-icon home-icon"}}<span class="glyphicon glyphicon-home"></span>
+           {{#link-to 'properties' class="nav-icon home-icon"}}<span {{action 'lookupAddress' searchParams target='controllers.properties'}} class="glyphicon glyphicon-home"></span>
            {{/link-to}}
            <a href="#" class="nav-icon filter-icon"><span class="glyphicon glyphicon-filter"></span></a>
         </div>
