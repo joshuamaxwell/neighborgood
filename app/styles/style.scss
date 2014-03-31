@@ -667,9 +667,13 @@ span.font4 {
 	.creator-mugshot {
 		padding: 5px;
 	}
-
-
 }
+
+// Account/Login Page
+.account-page {
+	// background: url("../images/neighborhood5b.jpg") no-repeat center center;
+}
+
 
 // Properties view (with map)
 .scss-map-canvas {
@@ -702,6 +706,47 @@ span.font4 {
 		padding-left: 0px;
 	}
 }
+
+// Home Detail Page
+.home-detail-wrapper {
+	padding: 10px;
+	padding-bottom: 20px;
+	border-radius: 6px;
+	background-color: #fff;
+	margin: 20px 0px;
+
+	h1 {
+		text-shadow: 2px 2px 0px #888888;
+		margin-top: 0px;
+	}
+
+	img {
+		width: 100%;
+	}
+}
+
+.home-description {
+	height: 100px;
+	overflow: hidden;
+	p {
+		font-size: 1em;
+	}
+}
+
+.instagram-section {
+	border-top: 5px solid $secondary-color;
+}
+
+.nearby-instagrams {
+	img {
+		width: 100%;
+	}
+
+	.single-instagram {
+		padding: 0px;
+	}
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
