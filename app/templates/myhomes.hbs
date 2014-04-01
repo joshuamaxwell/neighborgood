@@ -1,13 +1,30 @@
 <div class="container">
-	<div class="jumbo-wrapper">
-		<h1>My Homes</h1>
-		<ul>
-		{{#each}}
-		  {{#link-to 'property' this}}
-		    <li>{{address}}</li>
-		  {{/link-to}}
-		{{/each}}
-		</ul>
+	<div class="col-md-12">
+		<div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+			<div class="jumbo-wrapper">
+				<div class="pagebar">
+					<h1>My Homes</h1>
+				</div>
+				<ul class="list-group">
+				{{#each}}
+				  {{#link-to 'property' this}}
+				    <li class="property list-group-item row">
+				    	<p>{{address}}</p>
+				    	<h3>${{price}}</h3>
+				    	<div>
+				    		<div class="col-md-4 col-sm-4 home-info">
+				    			<h4>Bedrooms: {{bedrooms}}</h4>
+				    		</div>
+				    		<div class="col-md-4 col-sm-4 col-xs-4 home-info">
+							  	<h4>Bathrooms: {{bathrooms}}</h4>
+						  	</div>
+				    	</div>
+				    </li>
+				  {{/link-to}}
+				{{/each}}
+				</ul>
+			</div>
+		</div>
 	</div>
 </div>
 
