@@ -62,16 +62,10 @@ require('scripts/views/*');
 require('scripts/router');
 
 $(function(){
-    //now that the DOM is loaded...
 
-    //this gets the mmenu running
-    $("#drawer").mmenu({
-
-    },
-    {
-      selectedClass: "active"
-    });
-       
+    //I was trying to initialize the mmenu functions from here, but it
+    // failed when the page refreshed from other templates/routes
+    //DUUUH       
 });
 
 // Adding class on scroll to make navigation become transparent

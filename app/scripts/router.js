@@ -1,7 +1,6 @@
 App.Router.map(function () {
   this.route('style-guide');
   this.route('account');
-  this.route('profile');
   this.resource('properties'); 
   this.resource('property', {path: '/:property_id'}); 
   this.resource('myhomes');
