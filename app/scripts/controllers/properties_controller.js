@@ -17,22 +17,27 @@ App.PropertiesController = Ember.ArrayController.extend({
       //model that gets sent into the 'myhomes' bucket
       //which means it can get out of sync with the actual 'property' model
       //on the server or theoretically on zillow
-      var myhome = {
-        address: property.get('address'),
-        price: property.get('price'),
-        bedrooms: property.get('bedrooms'),
-        bathrooms: property.get('bathrooms'),
-        squarefeet: property.get('squarefeet'),
-        yearBuilt: property.get('yearBuilt'),
-        description: property.get('description'),
-        id: property.get('id'),
-        saved: true,
-        clickDate: Date.now()
+      if(App.userProfile.user){ 
+        var myhome = {
+          user: App.userProfile.user.id.toString(),
+          address: property.get('address'),
+          price: property.get('price'),
+          bedrooms: property.get('bedrooms'),
+          bathrooms: property.get('bathrooms'),
+          squarefeet: property.get('squarefeet'),
+          yearBuilt: property.get('yearBuilt'),
+          description: property.get('description'),
+          id: property.get('id'),
+          saved: true,
+          clickDate: Date.now()
+        }
+        myhome = this.store.createRecord('myhomes', myhome);
+        console.log('this is home to be saved inside saveProperty ', myhome);
+        console.log('this is userID saveProperty ', App.userProfile.user.id.toString());
+        console.log('this is the current user\'s model', App.userProfile.user);
+        myhome.save();
+        // this.store.push(App.userProfile.user.id, myhome);
       }
-      myhome = this.store.createRecord('myhomes', myhome);
-      console.log('this is home to be saved inside saveProperty ', myhome);
-      myhome.save();
-      // this.store.push(App.userProfile.user.id, myhome);
     },
 
     //////////////////

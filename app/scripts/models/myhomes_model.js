@@ -1,6 +1,8 @@
 var attr = DS.attr;
 
 App.Myhomes = DS.Model.extend({
+  //trying to move towards user's having history and saved homes
+  user: attr('string'),
   property_id: attr('number'),
   address: attr('string'),
   saved: attr('boolean'),
