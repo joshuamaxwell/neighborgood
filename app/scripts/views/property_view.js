@@ -26,7 +26,7 @@ App.PropertyView = Ember.View.extend({
             lat = results[0].geometry.location.d;
             lon = results[0].geometry.location.e;
             $.ajax({
-              url: 'https://api.instagram.com/v1/media/search?lat=' + lat + '&lng=' + lon + '&distance=2000&client_id=371ca2f6cfb64bfe9c71847cc6fe52c5&callback=?', 
+              url: 'https://api.instagram.com/v1/media/search?lat=' + lat + '&lng=' + lon + '&distance=1000&client_id=371ca2f6cfb64bfe9c71847cc6fe52c5&callback=?', 
               dataType: 'jsonp',
               success: function(results){
                 that.controller.set('instagramPhotos', results.data);

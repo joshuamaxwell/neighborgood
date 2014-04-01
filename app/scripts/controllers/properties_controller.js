@@ -77,7 +77,9 @@ App.PropertiesController = Ember.ArrayController.extend({
     //we don't need to assign a variable to the return value of this.pullInstagrams() so 
     //i'm going to just comment that line out and simply call the function
     // homeResults = this.pullInstagrams();
-    this.pullInstagrams();
+
+    //I'm going to alter this method so that it accepts two arguments, (lat, lon)
+    this.pullInstagrams(lat, lon);
 
     var that=this;
     this.get('model').forEach(function(property, index, enumerable){
@@ -85,6 +87,28 @@ App.PropertiesController = Ember.ArrayController.extend({
     })
     //now i maybe need to run this function over and over for each item in
     //the array by passing the properties in as arguments
+  },
+
+  pullInstagrams: function(lat, lon){
+    // Use map center points for Instagram pull radius
+    var that=this;
+    
+    // pull in Instagram activity via the API
+    $.ajax({
+      url: 'https://api.instagram.com/v1/media/search?lat=' + lat + '&lng=' + lon + '&distance=2000&client_id=371ca2f6cfb64bfe9c71847cc6fe52c5&callback=?', 
+      dataType: 'jsonp',
+      success: function(results){
+        //
+        results.data.forEach(function(value, index){
+          that.mapInstagram(value)
+        })
+        // that.mapInstagrams(results.data)
+      },
+      error: function(){
+        console.log('Bummer, something is wrong in pullInstagrams function.')
+      }
+    });
+
   },
 
   mapInstagram: function(instagram){
@@ -130,28 +154,6 @@ App.PropertiesController = Ember.ArrayController.extend({
         console.log('Geocode was not successful for the following reason: ', status);
       }
     });
-  },
-
-  pullInstagrams: function(){
-    // Use map center points for Instagram pull radius
-    var that=this;
-    
-    // pull in Instagram activity via the API
-    $.ajax({
-      url: 'https://api.instagram.com/v1/media/search?lat=34.842&lng=-82.394&distance=2000&client_id=371ca2f6cfb64bfe9c71847cc6fe52c5&callback=?', 
-      dataType: 'jsonp',
-      success: function(results){
-        //
-        results.data.forEach(function(value, index){
-          that.mapInstagram(value)
-        })
-        // that.mapInstagrams(results.data)
-      },
-      error: function(){
-        console.log('Bummer, something is wrong in pullInstagrams function.')
-      }
-    });
-
   },
 
   mapStyles: [
