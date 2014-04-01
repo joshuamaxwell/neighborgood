@@ -34,7 +34,9 @@
   <button {{action 'pullInstagrams'}} class="btn cta-color-btn">Pull Instagrams</button> --}}
   <div class="instagram-section col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="row nearby-instagrams">
-      <h4>From the nieghbors...</h4>
+      <div class="pagebar">
+        <h1>From the nieghbors...</h1>
+      </div>
     {{#each instagramPhotos}}
       <div class="single-instagram col-md-4 col-sm-4 col-xs-4 pull-right">
         <img {{bind-attr src=images.low_resolution.url}} alt="Instagram Photo">

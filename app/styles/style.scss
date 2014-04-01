@@ -720,22 +720,22 @@ span.font4 {
 		margin-top: 0px;
 	}
 
-.square-maker {
-	// overflow: hidden;
-	// position: relative;
-	img {
-		// width: 140%;
-		// position: absolute;
-		// top: 0;
-		// left: -45px;
-	}
+	.square-maker {
+		// overflow: hidden;
+		// position: relative;
+		img {
+			width: 100%;
+			// position: absolute;
+			// top: 0;
+			// left: -45px;
+		}
 
-	&.col-md-5 {
-		// height: 400px;
+		&.col-md-5 {
+			// height: 400px;
+		}
+		.square-imager {
+		}
 	}
-	.square-imager {
-	}
-}
 }
 
 
@@ -752,6 +752,10 @@ span.font4 {
 }
 
 .nearby-instagrams {
+	.pagebar {
+		margin-bottom: 0px;
+	}
+
 	img {
 		width: 100%;
 	}
