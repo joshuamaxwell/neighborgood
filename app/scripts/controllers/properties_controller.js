@@ -144,11 +144,16 @@ App.PropertiesController = Ember.ArrayController.extend({
     // console.log('address inside setMarkers is ', property.address);
     geocoder.geocode( { 'address': property.get('address')}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-        // that.get('googleMap').setCenter(results[0].geometry.location); // I don't think I want to bounce around
+        var caption = "address: " + property.get('address') +
+                              " price: " + property.get('price')
         var marker = new google.maps.Marker({
             map: that.get('googleMap'),
-            title: property.get('price').toString(),
+            title: caption,
             position: results[0].geometry.location 
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+            //add redirect right here
+            that.transitionToRoute('property', property.get('id'));
         });
       } else {
         console.log('Geocode was not successful for the following reason: ', status);
