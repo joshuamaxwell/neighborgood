@@ -39,7 +39,9 @@
       </div>
     {{#each instagramPhotos}}
       <div class="single-instagram col-md-4 col-sm-4 col-xs-4 pull-right">
-        <img {{bind-attr src=images.low_resolution.url}} alt="Instagram Photo">
+        <a {{bind-attr href=link}}>
+          <img {{bind-attr src=images.low_resolution.url}} alt="Instagram Photo">
+        </a>
       </div>
     {{/each}}
     </div>
