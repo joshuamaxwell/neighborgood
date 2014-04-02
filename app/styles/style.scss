@@ -282,6 +282,10 @@ span.font4 {
 		line-height: 30px;
 		font-size: 16px;
 	}
+
+	@media only screen and (max-width : 320px) {
+		display: none;
+	}
 }
 
 .divider {
@@ -289,6 +293,11 @@ span.font4 {
 	min-height: 5px;
 	margin-bottom: 60px;
 	margin-top: 90px;
+
+	@media only screen and (max-width : 320px) {
+		margin-bottom: 40px;
+		margin-top: 60px;
+	}
 }
 
 .style-element {
@@ -344,6 +353,23 @@ span.font4 {
     	padding-left: 10px;
 		}
   }
+	@media only screen and (max-width : 320px) {
+		input {
+			width: 100%;
+		}
+		.control-label {
+			display: none;
+		}
+
+		h1 {
+			font-size: 2em;
+		}
+
+		h2 {
+			font-size: 1.5em;
+		}
+	}
+
 }
 .color-element {
 	border: 4px solid white;
@@ -557,15 +583,19 @@ span.font4 {
 			bottom: 0;
 			right: 0;
 		}
+
+		.welcome-line2-background {
+			height: 100%;
+		}
 	}
 
-	@media screen and (max-width: 865px) {
+	@media only screen and (min-width: 768px) {
 		span {
 			font-size: 1.8em;
 		}
 	}
 
-	@media screen and (max-width: 850px) {
+	@media only screen and (max-width: 850px) {
 		background: url(../images/neighborhood5b.jpg) no-repeat top center fixed;
 		background-size: 100% auto;
 		height: 350px;
@@ -573,19 +603,22 @@ span.font4 {
 		padding-top: 15px;
 	}
 
-	@media screen and (max-width: 750px) {
+	@media only screen and (max-width: 750px) {
 		.welcome-line2-background {
 			height: 100px;
 		}
 	}
 
-	@media screen and (max-width: 580px) {
+	@media only screen and (max-width: 580px) {
 		height: 300px;
 	}
 
-	@media screen and (max-width: 550px) {
+	@media only screen and (max-width: 550px) {
 		height: 225px;
+	}
 
+	@media only screen and (max-width : 500px) {
+		height: 200px;
 		.welcome-line2-background {
 			height: 100%;
 		}
@@ -597,19 +630,17 @@ span.font4 {
 		.welcome-line2 {
 			display: none;
 		}
-
-		.welcome-line3 {
-			display: inline-block;
-			color: white;
-			position: absolute;
-			text-align: center;
-			padding-bottom: 10px;
-			bottom: 0;
-			right: 0;
-		}
-
-		span {
-			font-size: 3.5em;
+		
+		.welcome-copy {
+			.welcome-line3 {
+				display: inline-block;
+				color: white;
+				position: absolute;
+				text-align: center;
+				padding-bottom: 10px;
+				bottom: 30px;
+				right: 0;
+			}
 		}
 	}
 }
@@ -634,6 +665,20 @@ span.font4 {
 	img {
 		width: 100%;
 		border: 5px solid white;
+	}
+
+	@media only screen and (max-width : 320px) {
+		h1 {
+			font-size: 2.2em;
+		}
+
+		h2 {
+			font-size: 2em;
+		}
+
+		p {
+			font-size: 1.5em;
+		}
 	}
 }
 
@@ -661,10 +706,16 @@ span.font4 {
 
 	.creator-info {
 
+		@media only screen and (max-width : 320px) {
+			border-bottom: 1px solid white;
+			margin-bottom: 20px;
+		}
+
 	}
 
 	.creator-bio {
 		padding-top: 15px;
+		padding-bottom: 20px;
 
 	}
 
@@ -695,12 +746,19 @@ span.font4 {
 	margin-bottom: 10px;
 	h1 {
 		color: white;
+		text-shadow: none;
+	}
+
+	@media only screen and (max-width : 320px) {
+		h1 {
+			font-size: 2em;
+		}
 	}
 }
 
 .property {
 	padding-left: 40px;
-	@media screen and (max-width: 550px) {
+	@media only screen and (max-width: 550px) {
 		padding-left: 20px;
 	}
 	p {
@@ -773,7 +831,7 @@ span.font4 {
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
     .container {
         max-width: 1000px;
     }
