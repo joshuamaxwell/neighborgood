@@ -767,6 +767,32 @@ span.font4 {
 	}
 }
 
+.pagebar-light {
+	background-color: $secondary-color;
+	color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	margin-top: 0;
+	text-align: center;
+	margin-bottom: 0px;
+	h1 {
+		color: white;
+		text-shadow: none;
+	}
+
+	h3 {
+		color: white;
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+
+	@media only screen and (max-width : 320px) {
+		h1 {
+			font-size: 1.5em;
+		}
+	}
+}
 .property {
 	padding-left: 40px;
 	@media only screen and (max-width: 550px) {
@@ -775,21 +801,36 @@ span.font4 {
 	p {
 		font-size: 1.3em;
 	}
-	.home-info {
-		padding-left: 0px;
-    img {
-      padding-left: 0px;
-    }
+}
+
+.home-info {
+	padding-left: 0px;
+  img {
+    padding-left: 0px;
+  }
+}
+// Home Detail Page
+.home-detail-page {
+	padding-top: 10px;
+
+	.pagebar {
+		padding-top: 5px;
+		margin-left: 15px;
+		margin-right: 15px;
+
+		h1 {
+			margin-top: 5px;
+			margin-bottom: 0px;
+		}
 	}
 }
 
-// Home Detail Page
 .home-detail-wrapper {
 	padding: 10px;
 	padding-bottom: 20px;
 	border-radius: 6px;
 	background-color: #fff;
-	margin: 20px 0px;
+	margin: 0px 0px;
 
 	h1 {
 		margin-top: 0px;
@@ -811,7 +852,7 @@ span.font4 {
 		.square-imager {
 		}
 	}
-  @media only screen and (max-width : 320px) {
+  @media only screen and (max-width : 550px) {
   	margin-bottom: 10px;
   	padding-bottom: 0px;
 
@@ -827,16 +868,16 @@ span.font4 {
 
 
 .home-description {
+	height: 150px;
+	overflow-x: scroll;
+	padding-left: 0px;
+
   p {
     font-size: 1em;
   }
-  @media only screen and (max-width : 320px) {
+  @media only screen and (max-width : 550px) {
   	display: none;
   }
-}
-
-.instagram-section {
-	border-top: 5px solid $secondary-color;
 }
 
 .nearby-instagrams {
@@ -847,6 +888,11 @@ span.font4 {
 		h1 {
 			text-shadow: 0px 0px 0px black;
 			margin-top: 0px;
+		}
+
+		h3 {
+			margin-top: 0px;
+			color: $cta-color;
 		}
 	}
 
@@ -862,7 +908,7 @@ span.font4 {
 /* Responsive: Portrait tablets and up */
 @media only screen and (min-width: 768px) {
     .container {
-        max-width: 1000px;
+        max-width: 1040px;
     }
 
     /* Space out the masthead */
