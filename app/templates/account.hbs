@@ -5,66 +5,71 @@
       <div class="jumbo-wrapper col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
         <h1>My Account</h1>
         {{#if user}}
-          <h3>You have successfully logged in!</h3>
-          <p>Welcome, {{user.name}} {{user.email}}</p>
+          <div class="panel panel-default panel-body">
+            <h3>You have successfully logged in!</h3>
+            <p>Welcome, {{user.name}} {{user.email}}</p>
+            {{#link-to 'myhomes'}}
+              <button class="btn btn-block btn-lg cta-color-btn">MyHomes</button>
+            {{/link-to}}
+          </div>
         {{else}}
           <h3>Welcome! This is the perfect place for you to log-in or register.</h3>
           <p>Please enter your email address and password or login through Facebook or Twitter</p>
-        {{/if}}
 
-        {{#if loginFailed}}
-          <div class="alert">There was an error during login. Try again.</div>
-          <div class="alert">Message: {{loginError}}</div>
-        {{/if}}
+          {{#if loginFailed}}
+            <div class="alert">There was an error during login. Try again.</div>
+            <div class="alert">Message: {{loginError}}</div>
+          {{/if}}
 
-        <form class="form-horizontal">
-          <div class="row">
-            <div class="control-group col-md-8 col-md-offset-2">
-              <div class="col-md-4 col-sm-4 col-xs-4">
-                <span class="control-label pull-right">
-                  <label>Email</label>
-                </span>
+          <form class="form-horizontal">
+            <div class="row">
+              <div class="control-group col-md-8 col-md-offset-2">
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                  <span class="control-label pull-right">
+                    <label>Email</label>
+                  </span>
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                  <span class="controls">
+                    {{input value=email type="text" placeholder="Email"}}
+                  </span>
+                </div>
+              </div> {{!-- end control-group --}}
+            </div>
+            <div class="row">
+              <div class="control-group col-md-8 col-md-offset-2">
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                  <span class="control-label pull-right">
+                    <label>Password</label>
+                  </span>
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                  <span class="controls">
+                    {{input value=password type="password" placeholder="Password"}}
+                  </span>
+                </div>  
+              </div> {{!-- end control-group --}}
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+                <button {{action 'login'}} class="btn btn-block btn-lg cta-color-btn" {{bind-attr disabled="isProcessing"}}>Log in</button>
               </div>
-              <div class="col-md-8 col-sm-8 col-xs-8">
-                <span class="controls">
-                  {{input value=email type="text" placeholder="Email"}}
-                </span>
+              <div class="col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+                <button {{action 'register'}} class="btn btn-block btn-lg cta-color-btn" {{bind-attr disabled="isProcessing"}}>Sign up</button>
               </div>
-            </div> {{!-- end control-group --}}
-          </div>
-          <div class="row">
-            <div class="control-group col-md-8 col-md-offset-2">
-              <div class="col-md-4 col-sm-4 col-xs-4">
-                <span class="control-label pull-right">
-                  <label>Password</label>
-                </span>
-              </div>
-              <div class="col-md-8 col-sm-8 col-xs-8">
-                <span class="controls">
-                  {{input value=password type="password" placeholder="Password"}}
-                </span>
-              </div>  
-            </div> {{!-- end control-group --}}
-          </div>
+            </div>
+
+          </form>
+            
           <div class="row">
             <div class="col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
-              <button {{action 'login'}} class="btn btn-block btn-lg cta-color-btn" {{bind-attr disabled="isProcessing"}}>Log in</button>
+              <button {{action 'loginFacebook'}} class="btn btn-lg btn-block cta-color-btn" {{bind-attr disabled="isProcessing"}}>Log in with Facebook</button>
             </div>
             <div class="col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
-              <button {{action 'register'}} class="btn btn-block btn-lg cta-color-btn" {{bind-attr disabled="isProcessing"}}>Sign up</button>
+              <button {{action 'loginTwitter'}} class="btn btn-lg btn-block cta-color-btn" {{bind-attr disabled="isProcessing"}}>Log in with Twitter</button>
             </div>
           </div>
-
-        </form>
-          
-        <div class="row">
-          <div class="col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
-            <button {{action 'loginFacebook'}} class="btn btn-lg btn-block cta-color-btn" {{bind-attr disabled="isProcessing"}}>Log in with Facebook</button>
-          </div>
-          <div class="col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
-            <button {{action 'loginTwitter'}} class="btn btn-lg btn-block cta-color-btn" {{bind-attr disabled="isProcessing"}}>Log in with Twitter</button>
-          </div>
-        </div>
+        {{/if}}
         <div class="row">
           <div class="col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
             <button {{action 'logout'}} class="btn btn-lg btn-block cta-muted-btn" {{bind-attr disabled="isProcessing"}}>Logout</button>
