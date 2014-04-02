@@ -802,15 +802,21 @@ span.font4 {
 		.square-imager {
 		}
 	}
+  @media only screen and (max-width : 320px) {
+    h1 {
+      font-size: 1.5em;
+    }
+  }
 }
 
 
 .home-description {
-	height: 100px;
-	overflow: hidden;
-	p {
-		font-size: 1em;
-	}
+  p {
+    font-size: 1em;
+  }
+  @media only screen and (max-width : 320px) {
+  	display: none;
+  }
 }
 
 .instagram-section {
