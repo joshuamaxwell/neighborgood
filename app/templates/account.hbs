@@ -20,7 +20,6 @@
             <div class="alert">There was an error during login. Try again.</div>
             <div class="alert">Message: {{loginError}}</div>
           {{/if}}
-
           <form class="form-horizontal">
             <div class="row">
               <div class="control-group col-md-8 col-md-offset-2">
@@ -29,9 +28,9 @@
                     <label>Email</label>
                   </span>
                 </div>
-                <div class="col-md-8 col-sm-8 col-xs-8">
+                <div class="col-md-8 col-sm-8 col-xs-12">
                   <span class="controls">
-                    {{input value=email type="text" placeholder="Email"}}
+                    {{input value=email type="text" placeholder="Email" class="input-lg"}}
                   </span>
                 </div>
               </div> {{!-- end control-group --}}
@@ -43,9 +42,9 @@
                     <label>Password</label>
                   </span>
                 </div>
-                <div class="col-md-8 col-sm-8 col-xs-8">
+                <div class="col-md-8 col-sm-8 col-xs-12">
                   <span class="controls">
-                    {{input value=password type="password" placeholder="Password"}}
+                    {{input value=password type="password" placeholder="Password" class="input-lg"}}
                   </span>
                 </div>  
               </div> {{!-- end control-group --}}
