@@ -10,6 +10,7 @@ App.Myhomes = DS.Model.extend({
   description: attr('string'),
   price: attr('number'),
   squarefeet: attr('number'),
-  yearBuilt: attr('string')
+  yearBuilt: attr('string'),
+  picture: attr('string')
   
 })

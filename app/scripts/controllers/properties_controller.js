@@ -20,6 +20,7 @@ App.PropertiesController = Ember.ArrayController.extend({
       var myhome = {
         address: property.get('address'),
         price: property.get('price'),
+        picture: property.get('picture'),
         bedrooms: property.get('bedrooms'),
         bathrooms: property.get('bathrooms'),
         squarefeet: property.get('squarefeet'),
