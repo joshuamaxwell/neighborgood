@@ -164,7 +164,7 @@ module.exports = function (grunt) {
                     src: [
                         '<%= yeoman.dist %>/scripts/{,*/}*.js',
                         '<%= yeoman.dist %>/styles/{,*/}*.css',
-                        '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
+                        // '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
                         '<%= yeoman.dist %>/styles/fonts/*'
                     ]
                 }
@@ -179,10 +179,25 @@ module.exports = function (grunt) {
         usemin: {
             html: ['<%= yeoman.dist %>/{,*/}*.html'],
             css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+            // js:['<%= yeoman.dist %>/scripts/*templates.js'],
             options: {
                 dirs: ['<%= yeoman.dist %>']
             }
         },
+        // usemin: {
+        //   html: ['<%= yeoman.dist %>/{,*/}*.html'],
+        //   css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+        //   js: '<%= yeoman.dist %>/scripts/*.js',
+        //   options: {
+        //     assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images'],
+        //     patterns: {
+        //       // FIXME While usemin won't have full support for revved files we have to put all references manually here
+        //       js: [
+        //           [/(images\/.*?\.(?:gif|jpeg|jpg|png|webp|svg))/gm, 'Update the JS to reference our revved images']
+        //       ]
+        //     }
+        //   }
+        // },
         imagemin: {
             dist: {
                 files: [{
