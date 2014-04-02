@@ -1,49 +1,57 @@
 <div class="container">
   {{!-- <div class="jumbo-wrapper"> --}}
-  <div class="home-detail-wrapper">
-  <h1>{{address}}</h1>
-    <div class="row">
-      <div class="col-md-5 col-sm-5 col-xs-12 square-maker">
-        <div class="square-imager">
-          <img {{bind-attr src=picture}}>
-        </div>
-      </div>
-      <div class="col-md-7 col-sm-7 col-xs-12">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <h3>Price: ${{price}}</h3>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-6 home-info">
-          <h4>Beds: {{bedrooms}}</h4>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-6 home-info">
-          <h4>Baths: {{bathrooms}}</h4>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-6 home-info">
-          <h4>Squarefeet: {{squarefeet}}</h4>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-6 home-info">
-          <h4>Year Built: {{yearBuilt}}</h4>
-        </div>
-        <div class="home-description col-md-12 col-sm-12 col-xs-12">
-          <p>Description: {{description}}</p>
+  <div class="home-detail-page">
+    <div class="pagebar">
+      <h1>{{address}}</h1>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-12">
+      <div class="home-detail-wrapper">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12 square-maker">
+            <div class="square-imager">
+              <img {{bind-attr src=picture}}>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="col-md-12 col-sm-12 col-xs-12 list-box">
+              <h3>Price: ${{price}}</h3>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-6 home-info">
+              <h4>Beds: {{bedrooms}}</h4>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-6 home-info">
+              <h4>Baths: {{bathrooms}}</h4>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-6 home-info">
+              <h4>Squarefeet: {{squarefeet}}</h4>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-6 home-info">
+              <h4>Year Built: {{yearBuilt}}</h4>
+            </div>
+            <div class="home-description col-md-12 col-sm-12 col-xs-12">
+              <p>Description: {{description}}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  {{!-- <button {{action 'printModel'}} class="btn cta-color-btn">Print Model</button>
-  <button {{action 'pullInstagrams'}} class="btn cta-color-btn">Pull Instagrams</button> --}}
-  <div class="instagram-section col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="row nearby-instagrams">
-      <div class="pagebar">
-        <h1>From the nieghbors...</h1>
+    {{!-- <button {{action 'printModel'}} class="btn cta-color-btn">Print Model</button>
+    <button {{action 'pullInstagrams'}} class="btn cta-color-btn">Pull Instagrams</button> --}}
+    <div class="col-md-8 col-sm-8 col-xs-12">
+      <div class="instagram-section col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row nearby-instagrams">
+          <div class="pagebar-light">
+            <h3>From the neighbors...</h3>
+          </div>
+        {{#each instagramPhotos}}
+          <div class="single-instagram col-md-4 col-sm-4 col-xs-4 pull-right">
+            <a {{bind-attr href=link}}>
+              <img {{bind-attr src=images.low_resolution.url}} alt="Instagram Photo">
+            </a>
+          </div>
+        {{/each}}
+        </div>
       </div>
-    {{#each instagramPhotos}}
-      <div class="single-instagram col-md-4 col-sm-4 col-xs-4 pull-right">
-        <a {{bind-attr href=link}}>
-          <img {{bind-attr src=images.low_resolution.url}} alt="Instagram Photo">
-        </a>
-      </div>
-    {{/each}}
     </div>
   </div>
 </div> {{!-- close container --}}
