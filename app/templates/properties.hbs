@@ -15,13 +15,16 @@
 						  {{#link-to 'property' this}}
 						  	<li class="property list-group-item row" {{action 'saveProperty' this}}>
 						  		<p>{{address}}</p>
-						  		<h3>${{price}}</h3>
-						  		<div>
-						  			<div class="col-md-4 col-sm-4 col-xs-6 home-info">
-							  			<h4>Bedrooms: {{bedrooms}}</h4>
+						  		<div class="col-md-5 col-sm-8 col-xs-12">
+						  			<img class="col-xs-12" {{bind-attr src=picture}}>
+						  		</div>
+						  		<div class="col-md-7 col-sm-4 col-xs-12">
+							  		<h3 class="col-xs-12 home-info">${{price}}</h3>
+						  			<div class="col-xs-6 col-sm-12 col-md-6 home-info">
+							  			<h4>Beds: {{bedrooms}}</h4>
 						  			</div>
-						  			<div class="col-md-4 col-sm-4 col-xs-6 home-info">
-							  			<h4>Bathrooms: {{bathrooms}}</h4>
+						  			<div class="col-xs-6 col-sm-12 col-md-6 home-info">
+							  			<h4>Baths: {{bathrooms}}</h4>
 						  			</div>
 						  		</div>
 						  	</li>
